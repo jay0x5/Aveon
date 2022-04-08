@@ -54,7 +54,9 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 
   ~ Since it is still under Developement, it is not recommended to use this system with any of your professional work like websites or apps.
   
-
+# File Structure:
+   ~ Initial folder includes the server.js file which is the main code initially built
+   ~ Package folder includes an empty file at the moment and all the developement for npm package  version of this system will take place in Package folder
   
 # For Testing Purpose:-
    ## *TOOLS*
