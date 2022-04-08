@@ -75,7 +75,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
    Lets see how we can run the backend now?
      
   ### Step1: Git Clone the Repo
-    Command: command 
+    Command: git clone https://github.com/jay0x5/Aveon
         
   ### Step2: Change the environment variable values
    Change all the env snippets according to your use, Following are the lines and related snippets=>
@@ -90,6 +90,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
                     
    => As we can see in the above result we got "ELL" after slicing the string</br>
       So make sure to change and use the values as per your choice since they will decide the encryption key for your CAT.
+      Refer to samples folder for sample of .env
            
    B) Line-130 & 131: ```process.env.PORT```[it basically defines on which port is my express server running], So change it to whatever port you guys want to run express server on.
     
