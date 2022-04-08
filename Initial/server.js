@@ -13,6 +13,8 @@ dotenv.config({path: './.env'})
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
+
+
 async function CreateRecoveryDoc(u,userN,encat,urk){
     const USEKEY = userN
     const ENCAT = encat
