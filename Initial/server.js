@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const {v4: uuidv4} = require("uuid")
 const db = require('gun')();
 const CryptoJS = require("crypto-js");
-
+//sqwswqsqwswqs
 
 app = express();
 dotenv.config({path: './.env'})
