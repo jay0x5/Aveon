@@ -106,6 +106,10 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
   ### Step4: The Moment of Truth
   Run the backend!</br>
     ```Command: node server.js```
+
+   
+  ### Step5: Check results
+  A premade script has been provided to check your documents created, you may modify and run query.js file to achieve that.
    
    
 # Future Goals for the Project   

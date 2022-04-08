@@ -1,19 +1,17 @@
 //This is the Initial code i wrote while i was developing this concept, it includes a login and register function
 //My apologies for not having a super clean code, i am working on it, if you have doubts then please contact me :D
-//
+
 const express = require('express')
 const dotenv = require('dotenv');
 const {v4: uuidv4} = require("uuid")
 const db = require('gun')();
 const CryptoJS = require("crypto-js");
-//sqwswqsqwswqs
+
 
 app = express();
 dotenv.config({path: './.env'})
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-
-
 
 async function CreateRecoveryDoc(u,userN,encat,urk){
     const USEKEY = userN
@@ -60,16 +58,7 @@ async function RegisterUser(user,pass,email,ED){
         username: user,
         password: pass
     })
-    const checkcred = await db.get(UserUAK).once(v =>{
-        U_res = v
-        if (U_res === ''){
-            console.log("Failed to create a User")
-        }
-        else{
-            console.log("Usercreated")
-        } 
-
-    })
+    
     
     // const noderesult1 = db.get(UserUAK).once(v =>console.log(v.username))
     //put username as KEY and CAT as value into a file with URK as its access hash
