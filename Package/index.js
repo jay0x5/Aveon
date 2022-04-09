@@ -14,6 +14,28 @@ dotenv.config({path: './.env'})
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
+
+async function LogUser(CATOKEN,UEID){
+    //process the UUID for Key
+    const shid = String(UEID.substring(process.env.cutfrom,process.env.to)) 
+    const sshid = shid.replaceAll("-","")
+    const key = sshid
+
+    //process the CAT for UAK
+    const strucat = String(CATOKEN)
+    const decrypted = CryptoJS.AES.decrypt(strucat, key); 
+    const decres = decrypted.toString(CryptoJS.enc.Utf8) 
+    const uak = String(decres.substring(process.env.cutfrom,process.env.to))
+
+    //put in the uak to retrieve credentials
+    const logresult = db.get(uak).once(v =>{
+        const unamee = v.username
+        console.log("Logged in as" + unamee)
+
+
+    })
+}
+
 async function CreateRecoveryDoc(u,userN,encat,urk){
     const USEKEY = userN
     const ENCAT = encat
@@ -108,29 +130,13 @@ app.post('/register',async(req,res)=>{
 //login logic
 app.post('/login',async(res,req)=>{
     const {CATOKEN,UEID} = req.body //take CAT nd UUID from frontend login
-
-    //process the UUID for Key
-    const shid = String(UEID.substring(process.env.cutfrom,process.env.to)) 
-    const sshid = shid.replaceAll("-","")
-    const key = sshid
-
-    //process the CAT for UAK
-    const strucat = String(CATOKEN)
-    const decrypted = CryptoJS.AES.decrypt(strucat, key); 
-    const decres = decrypted.toString(CryptoJS.enc.Utf8) 
-    const uak = String(decres.substring(process.env.cutfrom,process.env.to))
-
-    //put in the uak to retrieve credentials
-    const logresult = db.get(uak).once(v =>{
-        const unamee = v.username
-        console.log("Logged in as" + unamee)
-
-
-    })
+    LogUser(CATOKEN,UEID)
+    
 })
-
 
 
 app.listen(process.env.PORT, ()=>{
     console.log("Running on: http://localhost:" + process.env.PORT)
 });
+
+
