@@ -18,10 +18,10 @@ async function CreateRecoveryDoc(u,userN,encat,urk){
     const USEKEY = userN
     const ENCAT = encat
     u[USEKEY] = ENCAT
-    const data = await db.get(ENCAT).put({
+    const data = db.get(ENCAT).put({
         u
     });
-    const noderesult = db.get(urk).once(v =>{
+    const noderesult = await db.get(urk).once(v =>{
         const res = v
         if (res === ''){
             console.log("Failed to create a recovery doc")
