@@ -28,8 +28,9 @@ async function CreateRecoveryDoc(u,userN,encat,urk){
         }
         else{
             console.log("recovery doc created")
-            console.log(encat)
             const Jsobject = {CAT:encat,URK:urk}
+            // console.log(Jsobject)
+            return Jsobject
         }
     
     });
