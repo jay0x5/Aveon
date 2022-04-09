@@ -1,10 +1,13 @@
-//We will be building the npm packaged version of system here in package folder
+//This is the Initial code i wrote while i was developing this concept, it includes a login and register function
+//My apologies for not having a super clean code, i am working on it, if you have doubts then please contact me :D
+//You can ignore commented code just like she ignores me :")
 
 const express = require('express')
 const dotenv = require('dotenv');
 const {v4: uuidv4} = require("uuid")
 const db = require('gun')();
 const CryptoJS = require("crypto-js");
+
 
 app = express();
 dotenv.config({path: './.env'})
@@ -25,26 +28,21 @@ async function CreateRecoveryDoc(u,userN,encat,urk){
         }
         else{
             console.log("recovery doc created")
-            const LogretCATobj = {CAT: encat,URK: urk} //to be returned to user so user can send it to frontend 
-           
-            
         }
     
     });
 }
 
-exports.RegisterUser = async function RegisterUser(user,pass,email,HID){
+async function RegisterUser(user,pass,email,HID){
     var userN = user //giving username to userN variable
 
     //create a unique user data access key(UAK)
     UserUAK = uuidv4()
     console.log("UAK: " + UserUAK)
 
-    //slicing UUID for a part of it
     const EIDD = String(HID.substring(process.env.cutfrom,process.env.to))
     const ED = EIDD.replaceAll("-","") 
     console.log("EID: "+ ED)
-
 
     //create a CAT for user and concatenate UAK into CAT //could be improved in future
     const CATTOKEN = uuidv4()
@@ -64,7 +62,16 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID){
         username: user,
         password: pass
     })
-    
+    const checkcred = await db.get(UserUAK).once(v =>{
+        U_res = v
+        if (U_res === ''){
+            console.log("Failed to create a User")
+        }
+        else{
+            console.log("Usercreated")
+        } 
+
+    })
     
     // const noderesult1 = db.get(UserUAK).once(v =>console.log(v.username))
     //put username as KEY and CAT as value into a file with URK as its access hash
@@ -78,10 +85,49 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID){
     const data = await db.get(URK).once(v =>{
         var u = v //retrieve current state of document and give it to variable u
         // console.log(u)
-        CreateRecoveryDoc(u,userN,encat,URK)
-    //    console.log(checkret) 
+        CreateRecoveryDoc(u,userN,encat,URK) 
     //passed retrieved document from created recovery document above to append username as key and encrypted cat to it as a key-value pair and passed URK so it could be accessed by that specific key
 });
 
 }
 
+//register logic
+app.post('/register',async(req,res)=>{
+    const {email,username,password,HID} = req.body
+    console.log(email)
+    console.log(username)
+    console.log(password) 
+    RegisterUser(username,password,email,HID)
+     // passed user credentials along with sliced UUID[EID1] to the function to process the data and put it in GunJS Network                    
+ })
+
+
+//login logic
+app.post('/login',async(res,req)=>{
+    const {CATOKEN,UEID} = req.body //take CAT nd UUID from frontend login
+
+    //process the UUID for Key
+    const shid = String(UEID.substring(process.env.cutfrom,process.env.to)) 
+    const sshid = shid.replaceAll("-","")
+    const key = sshid
+
+    //process the CAT for UAK
+    const strucat = String(CATOKEN)
+    const decrypted = CryptoJS.AES.decrypt(strucat, key); 
+    const decres = decrypted.toString(CryptoJS.enc.Utf8) 
+    const uak = String(decres.substring(process.env.cutfrom,process.env.to))
+
+    //put in the uak to retrieve credentials
+    const logresult = db.get(uak).once(v =>{
+        const unamee = v.username
+        console.log("Logged in as" + unamee)
+
+
+    })
+})
+
+
+
+app.listen(process.env.PORT, ()=>{
+    console.log("Running on: http://localhost:" + process.env.PORT)
+});

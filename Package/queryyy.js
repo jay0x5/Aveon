@@ -7,7 +7,8 @@ accessed by any other location but this folder instead.*/
 
 
 const db = require('gun')();
-const noderesult = db.get('Enter your desired URK/UAK value').once(v =>{
+
+const noderesult = db.get('fc964609-c34d-4e82-8cd6-1e9632d0a031').once(v =>{
         console.log(v)
         });
 

@@ -1,6 +1,6 @@
 //This is the Initial code i wrote while i was developing this concept, it includes a login and register function
 //My apologies for not having a super clean code, i am working on it, if you have doubts then please contact me :D
-//You can ignore code in comments just like how she ignores me :")
+//You can ignore commented code just like she ignores me :")
 
 const express = require('express')
 const dotenv = require('dotenv');
@@ -40,11 +40,9 @@ async function RegisterUser(user,pass,email,HID){
     UserUAK = uuidv4()
     console.log("UAK: " + UserUAK)
 
-    //slicing UUID for a part of it
     const EIDD = String(HID.substring(process.env.cutfrom,process.env.to))
     const ED = EIDD.replaceAll("-","") 
     console.log("EID: "+ ED)
-
 
     //create a CAT for user and concatenate UAK into CAT //could be improved in future
     const CATTOKEN = uuidv4()
@@ -64,7 +62,16 @@ async function RegisterUser(user,pass,email,HID){
         username: user,
         password: pass
     })
-    
+    const checkcred = await db.get(UserUAK).once(v =>{
+        U_res = v
+        if (U_res === ''){
+            console.log("Failed to create a User")
+        }
+        else{
+            console.log("Usercreated")
+        } 
+
+    })
     
     // const noderesult1 = db.get(UserUAK).once(v =>console.log(v.username))
     //put username as KEY and CAT as value into a file with URK as its access hash
