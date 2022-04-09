@@ -33,12 +33,17 @@ async function CreateRecoveryDoc(u,userN,encat,urk){
     });
 }
 
-async function RegisterUser(user,pass,email,ED){
+async function RegisterUser(user,pass,email,HID){
     var userN = user //giving username to userN variable
 
     //create a unique user data access key(UAK)
     UserUAK = uuidv4()
     console.log("UAK: " + UserUAK)
+
+    //slicing UUID for a part of it
+    const EIDD = String(HID.substring(process.env.cutfrom,process.env.to))
+    const ED = EIDD.replaceAll("-","") 
+    console.log("EID: "+ ED)
 
 
     //create a CAT for user and concatenate UAK into CAT //could be improved in future
@@ -85,10 +90,7 @@ app.post('/register',async(req,res)=>{
     console.log(email)
     console.log(username)
     console.log(password) 
-    const EIDD = String(HID.substring(process.env.cutfrom,process.env.to))
-    const EID1 = EIDD.replaceAll("-","") 
-    console.log("EID: "+ EID1)
-    RegisterUser(username,password,email,EID1)
+    RegisterUser(username,password,email,HID)
      // passed user credentials along with sliced UUID[EID1] to the function to process the data and put it in GunJS Network                    
  })
 
