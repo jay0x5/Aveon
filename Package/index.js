@@ -28,12 +28,14 @@ async function CreateRecoveryDoc(u,userN,encat,urk){
         }
         else{
             console.log("recovery doc created")
+            console.log(encat)
+            const Jsobject = {CAT:encat,URK:urk}
         }
     
     });
 }
 
-async function RegisterUser(user,pass,email,HID){
+exports.RegisterUser = async function RegisterUser(user,pass,email,HID){
     var userN = user //giving username to userN variable
 
     //create a unique user data access key(UAK)
