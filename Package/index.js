@@ -25,6 +25,8 @@ async function CreateRecoveryDoc(u,userN,encat,urk){
         }
         else{
             console.log("recovery doc created")
+            const LogretCATobj = {CAT: encat,URK: urk} //to be returned to user so user can send it to frontend 
+           
             
         }
     
@@ -76,8 +78,10 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID){
     const data = await db.get(URK).once(v =>{
         var u = v //retrieve current state of document and give it to variable u
         // console.log(u)
-        CreateRecoveryDoc(u,userN,encat,URK) 
+        CreateRecoveryDoc(u,userN,encat,URK)
+    //    console.log(checkret) 
     //passed retrieved document from created recovery document above to append username as key and encrypted cat to it as a key-value pair and passed URK so it could be accessed by that specific key
 });
 
 }
+

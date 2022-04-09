@@ -2,4 +2,5 @@
 
 const Reg = require("./index.js")
 
-Reg.RegisterUser("US1DQWD","P@wdqwd","M123123s12","134832487623")
+Reg.RegisterUser("WS1DQWD","P@wdqwd","M123123s12","134832487623")
+
