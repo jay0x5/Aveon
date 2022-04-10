@@ -163,7 +163,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
  - We will be pushing to launch this whole system as a tool for every developer to use, i just hope that enough contributions are made with a strong feedback
  
 # Contributions
- - Kindly refer to [CONTRIBUTIONS](https://github.com/jay0x5/Aveon/blob/95d6c7f080fbb4fff7b6f57ee74a9f773fb4ced7/Contributions.md) file on how one can contribute to the project.
+ - Kindly refer to [CONTRIBUTIONS](https://github.com/jay0x5/Aveon/blob/1ab181d16e535606393381f5374df08498578eb0/contributions.md) file on how one can contribute to the project.
  
 # Acknowledgements:
  - Cheers to Mr Mark Nadal @amark for creating such a wonderful utility like GunDB.</br>
