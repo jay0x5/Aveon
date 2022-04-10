@@ -74,9 +74,7 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
     console.log("UAK: " + UserUAK)
     
     //slicing UUID
-    const EIDD = String(HID.substring(CUTUUIDFROM,CUTUUIDTO))
-    console.log(process.env.cutfrom)
-    console.log(process.env.to)
+    const EIDD = String(HID.substring(CUTUUIDFROM,CUTUUIDTO)) //UUID part slicing to be determined by developer using it.
     const ED = EIDD.replaceAll("-","") 
     console.log("EID: "+ ED)
 
@@ -84,6 +82,7 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
     const CATTOKEN = uuidv4()
     const CAT = UserUAK + CATTOKEN
     console.log("CAT: " + CAT)
+    
     //encrypt the cat and send it ahead instead of sending plain cat
     const EDDfraze = ED
     var encrypted = CryptoJS.AES.encrypt(CAT, EDDfraze);  //encryption

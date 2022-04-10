@@ -88,6 +88,13 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
   ~**package.json**: package file created after npm init.
 
 
+  ### Running the code:
+   
+   For now, I think this is pretty straightforward without any code changes, you can run node filename.js after you set parameters for registering function in test.js file and then getting the encrypted CAT from the terminal, passing it to logintest.js and testing login function.
+
+   Please report any issues via "Issues" or reach out to me :D
+
+
 
 
 
@@ -96,7 +103,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
  
  ### File Structure["Initial" folder]:
  ~**server.js**: main code file, which includes register and login functions which were built for the first time.</br>
- 
+
  ~**query.js**: to check documents by entering respective URK or UAK.
 
   ### Step1: Git Clone the Repo
