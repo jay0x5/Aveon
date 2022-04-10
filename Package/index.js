@@ -82,7 +82,7 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
     const CATTOKEN = uuidv4()
     const CAT = UserUAK + CATTOKEN
     console.log("CAT: " + CAT)
-    
+
     //encrypt the cat and send it ahead instead of sending plain cat
     const EDDfraze = ED
     var encrypted = CryptoJS.AES.encrypt(CAT, EDDfraze);  //encryption
