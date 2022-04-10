@@ -47,6 +47,11 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 ![Screenshot 2022-04-08 122038](https://user-images.githubusercontent.com/78173760/162380341-f55656bc-c053-4725-a795-6bb769cdb64d.png)
 
 
+# TODOS [Will be updated everytime a task is completed or has been created]
+
+ ## Workspace: Package folder
+
+ ### 1.Make CreateRecoveryDoc function output/return encrypted CAT token and URK token so developer using package can take those values and send them to frontend as per their convenience.</br>For example: The developer should be able to assign the returned values to the variables which they have made in their code and then send those variables to frontend as per their convenience.
 
 
 # Getting Started
