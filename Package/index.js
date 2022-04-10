@@ -15,22 +15,30 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
 
-async function LogUser(CATOKEN,UEID){
+exports.Loginuser = async function LogUser(CATOKEN,UEID){
     //process the UUID for Key
+    //rebuild this function tomorrow
     const shid = String(UEID.substring(process.env.cutfrom,process.env.to)) 
+    console.log(process.env.cutUak)
+    console.log(process.env.toUak)
     const sshid = shid.replaceAll("-","")
     const key = sshid
+    console.log("LoginKey: " + key)
+    console.log("LoginCAT: " + CATOKEN)
 
     //process the CAT for UAK
     const strucat = String(CATOKEN)
     const decrypted = CryptoJS.AES.decrypt(strucat, key); 
     const decres = decrypted.toString(CryptoJS.enc.Utf8) 
-    const uak = String(decres.substring(process.env.cutfrom,process.env.to))
-
+    console.log(decres)
+    const uak = String(decres.substring(process.env.cutUak,process.env.toUak)) //cutUakto shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
+    const uakk = uak 
+    console.log("Loginuak: " + uakk)
     //put in the uak to retrieve credentials
-    const logresult = db.get(uak).once(v =>{
+    const logresult = db.get(uakk).once(v =>{
         const unamee = v.username
-        console.log("Logged in as" + unamee)
+        console.log(v)
+        console.log("Logged in as: " + unamee)
 
 
     })
@@ -64,8 +72,10 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID){
     //create a unique user data access key(UAK)
     UserUAK = uuidv4()
     console.log("UAK: " + UserUAK)
-
+    
     const EIDD = String(HID.substring(process.env.cutfrom,process.env.to))
+    console.log(process.env.cutfrom)
+    console.log(process.env.to)
     const ED = EIDD.replaceAll("-","") 
     console.log("EID: "+ ED)
 

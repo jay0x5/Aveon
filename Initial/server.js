@@ -115,7 +115,7 @@ app.post('/login',async(res,req)=>{
     const strucat = String(CATOKEN)
     const decrypted = CryptoJS.AES.decrypt(strucat, key); 
     const decres = decrypted.toString(CryptoJS.enc.Utf8) 
-    const uak = String(decres.substring(process.env.cutfrom,process.env.to))
+    const uak = String(decres.substring(process.env.cutUak,process.env.toUak))
 
     //put in the uak to retrieve credentials
     const logresult = db.get(uak).once(v =>{
@@ -125,7 +125,6 @@ app.post('/login',async(res,req)=>{
 
     })
 })
-
 
 
 app.listen(process.env.PORT, ()=>{

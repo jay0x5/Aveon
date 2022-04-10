@@ -80,13 +80,14 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
   ### Step2: Change the environment variable values
    Change all the env snippets according to your use, Following are the lines and related snippets=>
        
-   A) Line-96,109 & 117: ```process.env.cutfrom``` and ```process.env.to```[the substring start and end parameters to start slicing my UUID string from 'cutfrom' value to 'to' value]</br>
+   A) Line-96,110: ```process.env.cutfrom``` and ```process.env.to```[the substring start and end parameters to start slicing my UUID string from 'cutfrom' value to 'to' value]</br>
    For Example:
    
     var stringg = "HELLOWORLD"
     console.log(stringg.substring(process.env.cutfrom,process.env.to)) //where i have set cutfrom to as 1 and to as 4
              
     Result >> ELL 
+    
                     
    => As we can see in the above result we got "ELL" after slicing the string</br>
       So make sure to change and use the values as per your choice since they will decide the encryption key for your CAT.</br>
@@ -95,6 +96,8 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
    B) Line-130 & 131: ```process.env.PORT```[it basically defines on which port is my express server running], So change it to whatever port you guys want to run express server on.
     
    C) Line-76: ```process.env.SECRET2``` is basically backend known secret hash which when paired with arbitary generation forms the URK, so feel free to set it up as per your choice.
+
+   D) it is not recommended to change ```process.env.cutUak``` and ```process.env.toUak``` since that will mess up the process of retrieving embedded uak from cat during login process.
         
   ### Step3: Connect your Frontend</br>
   Change all the key names to the ones which match your frontend</br>
