@@ -113,6 +113,8 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
    
   ### Step5: Check results
   A premade script has been provided to check your documents created, you may modify and run query.js file to achieve that.
+
+  ### Instructions to test seperate modules for the npm package coming soon!!
    
    
 # Future Goals for the Project   
