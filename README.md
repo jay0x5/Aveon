@@ -99,7 +99,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 
 
 
-## For Initial barebone code in Initial folder</br>[Wont be maintained after first package launch]:=
+## For Initial barebone code in Initial folder</br>[Wont be maintained after first package launch]:
  
  ### File Structure["Initial" folder]:
  ~**server.js**: main code file, which includes register and login functions which were built for the first time.</br>
@@ -122,9 +122,9 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
     
                     
    => As we can see in the above result we got "ELL" after slicing the string.</br>
-   
-      So make sure to change and use the values as per your choice since they will decide the encryption key for your CAT.</br>
-      You can refer to Samples folder for sample of .env file.
+
+   - So make sure to change and use the values as per your choice since they will decide the encryption key for your CAT.</br>
+   - You can refer to Samples folder for sample of .env file.
            
    B) Line-130 & 131: ```process.env.PORT```[it basically defines on which port is my express server running], So change it to whatever port you guys want to run express server on.
     
