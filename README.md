@@ -74,7 +74,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
    # *WHAT THE CODE?!*
    
    Lets see how we can run the backend now?
-## For Module based code which is being developed for NPM Package[Main Development Focus]:
+## For Module based code which is being developed for NPM Package</br>[Main Development Focus]:
 
   ### File Structure["Package" folder]:
   ~**index.js**: main code file where all the functionalities are being built.</br>
@@ -99,7 +99,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 
 
 
-## For Initial barebone code in Initial folder[Wont be maintained after first package launch]:=
+## For Initial barebone code in Initial folder</br>[Wont be maintained after first package launch]:=
  
  ### File Structure["Initial" folder]:
  ~**server.js**: main code file, which includes register and login functions which were built for the first time.</br>
@@ -121,7 +121,8 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
     Result >> ELL 
     
                     
-   => As we can see in the above result we got "ELL" after slicing the string</br>
+   => As we can see in the above result we got "ELL" after slicing the string.</br>
+   
       So make sure to change and use the values as per your choice since they will decide the encryption key for your CAT.</br>
       You can refer to Samples folder for sample of .env file.
            
