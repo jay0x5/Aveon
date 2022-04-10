@@ -51,7 +51,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 
  ## Workspace: Package folder
 
- ### 1.Make CreateRecoveryDoc function output/return encrypted CAT token and URK token so developer using package can take those values and send them to frontend as per their convenience.</br>For example: The developer should be able to assign the returned values to the variables which they have made in their code and then send those variables to frontend as per their convenience.
+ ### 1]Make CreateRecoveryDoc function output/return encrypted CAT token and URK token so developer using package can take those values and send them to frontend as per their convenience.</br>For example: The developer should be able to assign the returned values to the variables which they have made in their code and then send those variables to frontend as per their convenience.
 
 
 # Getting Started
