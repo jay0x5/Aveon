@@ -32,10 +32,10 @@ The purpose of starting this project is to apply the concept of decentralization
 ![b61466cc462bf5a13fef21ef40b710df](https://user-images.githubusercontent.com/78173760/161983977-625fe5f1-b4c5-4387-be27-3cfcf3b5f4fa.png)
 
 Well its quite simple, At the moment the whole system has 3 key components UAK,URK,CAT and of course the GUNDB Network</br>
-~ UAK stands for UserAccessKey and is the actual hash to access user ~~data~~ _**credentials_**,used for accessing credentials & relations purpose</br>
-~ URK stands for UserRecoveryKey and is the actual key ~~linked~~ **_uniquely linked_** to each user on the network,used for recovery purpose</br>
-~ CAT stands for ~~User~~ ClientAccessToken and is passed on to user and also holds many **secrets** like UAK,used for accessing UAK</br>
-~ GunDb network allows distribution of User-Credentials in a ~~Centralized~~ **_Decentralized_** Manner</br>
+- UAK stands for UserAccessKey and is the actual hash to access user ~~data~~ _**credentials_**,used for accessing credentials & relations purpose</br>
+- URK stands for UserRecoveryKey and is the actual key ~~linked~~ **_uniquely linked_** to each user on the network,used for recovery purpose</br>
+- CAT stands for ~~User~~ ClientAccessToken and is passed on to user and also holds many **secrets** like UAK,used for accessing UAK</br>
+- GunDb network allows distribution of User-Credentials in a ~~Centralized~~ **_Decentralized_** Manner</br>
 
 
 
@@ -52,12 +52,12 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 # Getting Started
  ## Warning!!
 
-  ~ Since it is still under Developement, it is not recommended to use this system with any of your professional work like websites or apps.
+  - Since it is still under Developement, it is not recommended to use this system with any of your professional work like websites or apps.
   
 # File Structure:
-   ~ Initial folder includes the server.js file which is the main code initially built.</br>
-   ~ Package folder includes an empty file at the moment and all the developement for npm package  version of this system will take place in Package folder.</br>
-   ~ Samples folder includes all the sample files.
+   - Initial folder includes the server.js file which is the main code initially built.</br>
+   - Package folder includes an empty file at the moment and all the developement for npm package  version of this system will take place in Package folder.</br>
+   - Samples folder includes all the sample files.
   
 # For Testing Purpose:-
    ## *TOOLS*
@@ -77,15 +77,15 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 ## For Module based code which is being developed for NPM Package</br>[Main Development Focus]:
 
   ### File Structure["Package" folder]:
-  ~**index.js**: main code file where all the functionalities are being built.</br>
+  - **index.js**: main code file where all the functionalities are being built.</br>
 
-  ~**test.js**: test file which imports index.js and is testing its RegisterUser Function.</br>
+  - **test.js**: test file which imports index.js and is testing its RegisterUser Function.</br>
 
-  ~**logintest.js**: another test file which imports index.js and is testing its LoginUser Function.</br>
+  - **logintest.js**: another test file which imports index.js and is testing its LoginUser Function.</br>
 
-  ~**queryyy.js**: just a GUNDB querying code which is used to check documents by entering respective URK or UAK.</br>
+  - **queryyy.js**: just a GUNDB querying code which is used to check documents by entering respective URK or UAK.</br>
 
-  ~**package.json**: package file created after npm init.
+  - **package.json**: package file created after npm init.
 
 
   ### Running the code:
@@ -102,9 +102,9 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 ## For Initial barebone code in Initial folder</br>[Wont be maintained after first package launch]:
  
  ### File Structure["Initial" folder]:
- ~**server.js**: main code file, which includes register and login functions which were built for the first time.</br>
+ - **server.js**: main code file, which includes register and login functions which were built for the first time.</br>
 
- ~**query.js**: to check documents by entering respective URK or UAK.
+ - **query.js**: to check documents by entering respective URK or UAK.
 
   ### Step1: Git Clone the Repo
     Command: git clone https://github.com/jay0x5/Aveon
@@ -121,7 +121,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
     Result >> ELL 
     
                     
-   => As we can see in the above result we got "ELL" after slicing the string.</br>
+   - As we can see in the above result we got "ELL" after slicing the string.</br>
 
    - So make sure to change and use the values as per your choice since they will decide the encryption key for your CAT.</br>
    - You can refer to Samples folder for sample of .env file.
@@ -153,19 +153,19 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
    
    
 # Future Goals for the Project   
- ~ We will be pushing to launch this whole system as a tool for every developer to use, i just hope that enough contributions are made with a strong feedback
+ - We will be pushing to launch this whole system as a tool for every developer to use, i just hope that enough contributions are made with a strong feedback
  
 # Contributions
- ~ Kindly refer to [CONTRIBUTIONS](https://github.com/jay0x5/App/blob/598247c4d049c55fbdc5d2780dd5172c7b26d1ae/Contributions.md) file on how one can contribute to the project.
+ - Kindly refer to [CONTRIBUTIONS](https://github.com/jay0x5/App/blob/598247c4d049c55fbdc5d2780dd5172c7b26d1ae/Contributions.md) file on how one can contribute to the project.
  
 # Acknowledgements:
- ~ Cheers to Mr Mark Nadal @amark for creating such a wonderful utility like GunDB.</br>
- ~ Potential contributors will be recognized as a part of the family.
+ - Cheers to Mr Mark Nadal @amark for creating such a wonderful utility like GunDB.</br>
+ -  Potential contributors will be recognized as a part of the family.
  
 # Reach out to me:
- ~ My Discord: Jay05#9214<br/>
- ~ My twitter: https://twitter.com/Jay0x5<br/>
- ~ My mail: contactjay0x5@gmail.com
+ - My Discord: Jay05#9214<br/>
+ - My twitter: https://twitter.com/Jay0x5<br/>
+ - My mail: contactjay0x5@gmail.com
  
         
    
