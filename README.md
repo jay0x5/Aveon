@@ -78,9 +78,13 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 
   ### File Structure["Package" folder]:
   ~**index.js**: main code file where all the functionalities are being built.</br>
+
   ~**test.js**: test file which imports index.js and is testing its RegisterUser Function.</br>
+
   ~**logintest.js**: another test file which imports index.js and is testing its LoginUser Function.</br>
+
   ~**queryyy.js**: just a GUNDB querying code which is used to check documents by entering respective URK or UAK.</br>
+
   ~**package.json**: package file created after npm init.
 
 
@@ -92,6 +96,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
  
  ### File Structure["Initial" folder]:
  ~**server.js**: main code file, which includes register and login functions which were built for the first time.</br>
+ 
  ~**query.js**: to check documents by entering respective URK or UAK.
 
   ### Step1: Git Clone the Repo
