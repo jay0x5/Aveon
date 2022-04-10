@@ -118,7 +118,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
     var stringg = "HELLOWORLD"
     console.log(stringg.substring(process.env.cutfrom,process.env.to)) //where i have set cutfrom to as 1 and to as 4
              
-    Result >> ELL 
+   - Result >> ELL 
     
                     
    - As we can see in the above result we got "ELL" after slicing the string.</br>
