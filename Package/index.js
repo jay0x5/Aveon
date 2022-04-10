@@ -15,12 +15,12 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
 
-exports.Loginuser = async function LogUser(CATOKEN,UEID){
+exports.Loginuser = async function LogUser(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
     //process the UUID for Key
     //rebuild this function tomorrow
-    const shid = String(UEID.substring(process.env.cutfrom,process.env.to)) 
-    console.log(process.env.cutUak)
-    console.log(process.env.toUak)
+    const shid = String(UEID.substring(CUTUUIDFROM,CUTUUIDTO)) 
+    console.log(CUTUUIDFROM)
+    console.log(CUTUUIDTO)
     const sshid = shid.replaceAll("-","")
     const key = sshid
     console.log("LoginKey: " + key)
@@ -31,7 +31,7 @@ exports.Loginuser = async function LogUser(CATOKEN,UEID){
     const decrypted = CryptoJS.AES.decrypt(strucat, key); 
     const decres = decrypted.toString(CryptoJS.enc.Utf8) 
     console.log(decres)
-    const uak = String(decres.substring(process.env.cutUak,process.env.toUak)) //cutUakto shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
+    const uak = String(decres.substring(process.env.cutUak,process.env.toUak)) //Shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
     const uakk = uak 
     console.log("Loginuak: " + uakk)
     //put in the uak to retrieve credentials
@@ -66,14 +66,15 @@ async function CreateRecoveryDoc(u,userN,encat,urk){
     });
 }
 
-exports.RegisterUser = async function RegisterUser(user,pass,email,HID){
+exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFROM,CUTUUIDTO,RECSECRET){
     var userN = user //giving username to userN variable
 
     //create a unique user data access key(UAK)
     UserUAK = uuidv4()
     console.log("UAK: " + UserUAK)
     
-    const EIDD = String(HID.substring(process.env.cutfrom,process.env.to))
+    //slicing UUID
+    const EIDD = String(HID.substring(CUTUUIDFROM,CUTUUIDTO))
     console.log(process.env.cutfrom)
     console.log(process.env.to)
     const ED = EIDD.replaceAll("-","") 
@@ -86,7 +87,9 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID){
     //encrypt the cat and send it ahead instead of sending plain cat
     const EDDfraze = ED
     var encrypted = CryptoJS.AES.encrypt(CAT, EDDfraze);  //encryption
-    console.log("Encryption: "+ encrypted.toString()) //to view encrypted
+    console.log("Encryption: "+ encrypted.toString())
+    console.log(CUTUUIDFROM)
+    console.log(CUTUUIDTO) 
     const encat = encrypted.toString()
     // var decrypted = CryptoJS.AES.decrypt(encrypted, key); //decryption
     //console.log("Encryption: "+ decrypted.toString(CryptoJS.enc.Utf8)) //to view decrypted
@@ -112,7 +115,7 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID){
     //put username as KEY and CAT as value into a file with URK as its access hash
     //create a default key-value first since we cannot put real data in null files
     //create a unique recovery doc access key of user(URK)
-    const URK = uuidv4() + process.env.SECRET2 //generate unique URK for every user
+    const URK = uuidv4() + RECSECRET //generate unique URK for every user
     console.log("URK: " + URK)
     const defdata = await db.get(URK).put({
         default: 'defaultID'
