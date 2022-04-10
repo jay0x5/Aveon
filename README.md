@@ -56,7 +56,8 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
   
 # File Structure:
    ~ Initial folder includes the server.js file which is the main code initially built.</br>
-   ~ Package folder includes an empty file at the moment and all the developement for npm package  version of this system will take place in Package folder.
+   ~ Package folder includes an empty file at the moment and all the developement for npm package  version of this system will take place in Package folder.</br>
+   ~ Samples folder includes all the sample files.
   
 # For Testing Purpose:-
    ## *TOOLS*
@@ -73,7 +74,26 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
    # *WHAT THE CODE?!*
    
    Lets see how we can run the backend now?
-     
+## For Module based code which is being developed for NPM Package[Main Development Focus]:
+
+  ### File Structure["Package" folder]:
+  ~**index.js**: main code file where all the functionalities are being built.</br>
+  ~**test.js**: test file which imports index.js and is testing its RegisterUser Function.</br>
+  ~**logintest.js**: another test file which imports index.js and is testing its LoginUser Function.</br>
+  ~**queryyy.js**: just a GUNDB querying code which is used to check documents by entering respective URK or UAK.</br>
+  ~**package.json**: package file created after npm init.
+
+
+
+
+
+
+## For Initial barebone code in Initial folder[Wont be maintained after first package launch]:=
+ 
+ ### File Structure["Initial" folder]:
+ ~**server.js**: main code file, which includes register and login functions which were built for the first time.</br>
+ ~**query.js**: to check documents by entering respective URK or UAK.
+
   ### Step1: Git Clone the Repo
     Command: git clone https://github.com/jay0x5/Aveon
         
@@ -115,6 +135,8 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
   A premade script has been provided to check your documents created, you may modify and run query.js file to achieve that.
 
   ### NOTE: Instructions to test seperate modules for the npm package coming soon!!
+
+ 
    
    
 # Future Goals for the Project   
