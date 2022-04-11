@@ -51,20 +51,22 @@ async function CreateRecoveryDoc(u,userN,encat,urk){
     const data = db.get(ENCAT).put({
         u
     });
-    const noderesult = await db.get(urk).once(v =>{
-        const res = v
-        if (res === ''){
-            console.log("Failed to create a recovery doc")
-        }
-        else{
-            console.log("recovery doc created")
-            const Jsobject ={CAT:encat,URK:urk}
-            // console.log(Jsobject)
-            return Jsobject
-        }
-    
+    return new Promise( (resolve,reject) => {
+        db.get(urk).once(v =>{
+            const res = v
+            if (res === ''){
+                reject(new Error("Failed to create a recovery doc"))
+            }
+            else{
+                console.log("recovery doc created")
+                const Jsobject = {CAT:encat,URK:urk}
+                // console.log(Jsobject)
+                resolve( Jsobject)
+            }
+        })
     });
 }
+
 
 exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFROM,CUTUUIDTO,RECSECRET){
     var userN = user //giving username to userN variable
@@ -120,19 +122,18 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
     const defdata = await db.get(URK).put({
         default: 'defaultID'
     })
-    let jsobj
-    return db.get(URK).once(v =>{
-        var u = v //retrieve current state of document and give it to variable u
-        // console.log(u)
-        jsobj = CreateRecoveryDoc(u,userN,encat,URK) 
-        // console.log(String(jsobj))
-        return jsobj
+  
+    return new Promise( resolve => 
+        db.get(URK).once(
+           u => resolve( CreateRecoveryDoc(u,userN,encat,URK))
+           
+        )
+     );
     //passed retrieved document from created recovery document above to append username as key and encrypted cat to it as a key-value pair and passed URK so it could be accessed by that specific key
-});
+};
 
  
 
-}
 
 //register logic
 app.post('/register',async(req,res)=>{
