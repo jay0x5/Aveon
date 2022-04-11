@@ -1,11 +1,19 @@
 {
-  "name": "packagetestbyjay",
-  "version": "1.0.0",
-  "description": "test aveon",
+  "name": "aveon",
+  "version": "1.0.5",
+  "description": "test description",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jay0x5/Aveon.git"
+  },
+  "author": "Jay Desale",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jay0x5/Aveon/issues"
+  },
+  "homepage": "https://github.com/jay0x5/Aveon#readme"
 }

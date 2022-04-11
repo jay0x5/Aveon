@@ -19,29 +19,43 @@ exports.Loginuser = async function LogUser(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
     //process the UUID for Key
     //rebuild this function tomorrow
     const shid = String(UEID.substring(CUTUUIDFROM,CUTUUIDTO)) 
-    console.log(CUTUUIDFROM)
-    console.log(CUTUUIDTO)
+    // console.log(CUTUUIDFROM)
+    // console.log(CUTUUIDTO)
     const sshid = shid.replaceAll("-","")
     const key = sshid
-    console.log("LoginKey: " + key)
-    console.log("LoginCAT: " + CATOKEN)
+    // console.log("LoginKey: " + key)
+    // console.log("LoginCAT: " + CATOKEN)
 
     //process the CAT for UAK
     const strucat = String(CATOKEN)
     const decrypted = CryptoJS.AES.decrypt(strucat, key); 
     const decres = decrypted.toString(CryptoJS.enc.Utf8) 
-    console.log(decres)
+    // console.log(decres)
     const uak = String(decres.substring(process.env.cutUak,process.env.toUak)) //Shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
     const uakk = uak 
-    console.log("Loginuak: " + uakk)
+    // console.log("Loginuak: " + uakk)
     //put in the uak to retrieve credentials
-    const logresult = db.get(uakk).once(v =>{
-        const unamee = v.username
-        console.log(v)
-        console.log("Logged in as: " + unamee)
+    return new Promise((resolve,reject) => {
+        db.get(uakk).once(v =>{
+            var res = v
+            if (res === ''){
+                reject(new Error("Failed to find a logged in"))
+                const Jsobject = {isLogged: "False"}
+                // console.log(Jsobject)
+                resolve(Jsobject)
+            }
+            else{
+                const Jsobject = {isLogged: "True",LoggedinAs:v.username}
+                // console.log(Jsobject)
+                resolve(Jsobject)
+            }
+        })
 
 
     })
+
+
+    
 }
 
 async function CreateRecoveryDoc(u,userN,encat,urk){
@@ -58,8 +72,7 @@ async function CreateRecoveryDoc(u,userN,encat,urk){
                 reject(new Error("Failed to create a recovery doc"))
             }
             else{
-                console.log("recovery doc created")
-                const Jsobject = {CAT:encat,URK:urk}
+                const Jsobject = {CAT:encat,URK:urk,isRecoveryDoc:"True"}
                 // console.log(Jsobject)
                 resolve( Jsobject)
             }
@@ -73,24 +86,24 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
 
     //create a unique user data access key(UAK)
     UserUAK = uuidv4()
-    console.log("UAK: " + UserUAK)
+    // console.log("UAK: " + UserUAK)
     
     //slicing UUID
     const EIDD = String(HID.substring(CUTUUIDFROM,CUTUUIDTO)) //UUID part slicing to be determined by developer using it.
     const ED = EIDD.replaceAll("-","") 
-    console.log("EID: "+ ED)
+    // console.log("EID: "+ ED)
 
     //create a CAT for user and concatenate UAK into CAT //could be improved in future
     const CATTOKEN = uuidv4()
     const CAT = UserUAK + CATTOKEN
-    console.log("CAT: " + CAT)
+    // console.log("CAT: " + CAT)
 
     //encrypt the cat and send it ahead instead of sending plain cat
     const EDDfraze = ED
     var encrypted = CryptoJS.AES.encrypt(CAT, EDDfraze);  //encryption
-    console.log("Encryption: "+ encrypted.toString())
-    console.log(CUTUUIDFROM)
-    console.log(CUTUUIDTO) 
+    // console.log("Encryption: "+ encrypted.toString())
+    // console.log(CUTUUIDFROM)
+    // console.log(CUTUUIDTO) 
     const encat = encrypted.toString()
     // var decrypted = CryptoJS.AES.decrypt(encrypted, key); //decryption
     //console.log("Encryption: "+ decrypted.toString(CryptoJS.enc.Utf8)) //to view decrypted
@@ -107,8 +120,8 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
             console.log("Failed to create a User")
         }
         else{
-            console.log("Usercreated")
-            console.log("XD")
+            console.log("user created")
+            // console.log("XD")
         } 
 
     })
@@ -118,7 +131,7 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
     //create a default key-value first since we cannot put real data in null files
     //create a unique recovery doc access key of user(URK)
     const URK = uuidv4() + RECSECRET //generate unique URK for every user
-    console.log("URK: " + URK)
+    // console.log("URK: " + URK)
     const defdata = await db.get(URK).put({
         default: 'defaultID'
     })
@@ -136,27 +149,27 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
 
 
 //register logic
-app.post('/register',async(req,res)=>{
-    const {email,username,password,HID} = req.body
-    console.log(email)
-    console.log(username)
-    console.log(password) 
-    RegisterUser(username,password,email,HID)
-     // passed user credentials along with sliced UUID[EID1] to the function to process the data and put it in GunJS Network                    
- })
+// app.post('/register',async(req,res)=>{
+//     const {email,username,password,HID} = req.body
+//     console.log(email)
+//     console.log(username)
+//     console.log(password) 
+//     RegisterUser(username,password,email,HID)
+//      // passed user credentials along with sliced UUID[EID1] to the function to process the data and put it in GunJS Network                    
+//  })
 
 
-//login logic
-app.post('/login',async(res,req)=>{
-    const {CATOKEN,UEID} = req.body //take CAT nd UUID from frontend login
-    LogUser(CATOKEN,UEID)
+// //login logic
+// app.post('/login',async(res,req)=>{
+//     const {CATOKEN,UEID} = req.body //take CAT nd UUID from frontend login
+//     LogUser(CATOKEN,UEID)
     
-})
+// })
 
 
 
-app.listen(process.env.PORT, ()=>{
-    console.log("Running on: http://localhost:" + process.env.PORT)
-});
+// app.listen(process.env.PORT, ()=>{
+//     console.log("Running on: http://localhost:" + process.env.PORT)
+// });
 
 

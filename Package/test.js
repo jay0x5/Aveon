@@ -2,8 +2,8 @@
 
 
 const {RegisterUser} = require("./index.js")
-
-var registres = RegisterUser("WSDIC1DQWD","P@wdqwd","M123123s12","31444335-3730-3451-5744-6C02E07DD074","2","30","$WKR@I%")
+var rec = "$WKR@I%"
+var registres = RegisterUser("WSDIC1DQWD","P@wdqwd","M123123s12","31444335-3730-3451-5744-6C02E07DD074","2","30",rec)
 
 //retrieving the returned CAT and URK
 registres.then(x=>
