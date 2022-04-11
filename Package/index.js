@@ -58,7 +58,7 @@ async function CreateRecoveryDoc(u,userN,encat,urk){
         }
         else{
             console.log("recovery doc created")
-            const Jsobject = {CAT:encat,URK:urk}
+            const Jsobject ={CAT:encat,URK:urk}
             // console.log(Jsobject)
             return Jsobject
         }
@@ -106,6 +106,7 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
         }
         else{
             console.log("Usercreated")
+            console.log("XD")
         } 
 
     })
@@ -119,12 +120,17 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
     const defdata = await db.get(URK).put({
         default: 'defaultID'
     })
-    const data = await db.get(URK).once(v =>{
+    let jsobj
+    return db.get(URK).once(v =>{
         var u = v //retrieve current state of document and give it to variable u
         // console.log(u)
-        CreateRecoveryDoc(u,userN,encat,URK) 
+        jsobj = CreateRecoveryDoc(u,userN,encat,URK) 
+        // console.log(String(jsobj))
+        return jsobj
     //passed retrieved document from created recovery document above to append username as key and encrypted cat to it as a key-value pair and passed URK so it could be accessed by that specific key
 });
+
+ 
 
 }
 
@@ -145,6 +151,7 @@ app.post('/login',async(res,req)=>{
     LogUser(CATOKEN,UEID)
     
 })
+
 
 
 app.listen(process.env.PORT, ()=>{

@@ -53,7 +53,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 
  ### 1]Make CreateRecoveryDoc function output/return encrypted CAT token and URK token so developer using package can take those values and send them to frontend as per their convenience.</br></br>For example: The developer should be able to assign the returned values from the function to the variables which they have made in their code and then send those variables to frontend as per their convenience.
 
- ### 2]Fix Hyperlink in CONTRIBUTIONS section in the readme file and CodeOfConduct section in Contributions.md file
+ 
 
 
 # Getting Started
