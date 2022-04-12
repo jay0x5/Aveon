@@ -15,16 +15,13 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
 
-exports.Loginuser = async function LogUser(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
+exports.LoginUser = async function LogUser(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
     //process the UUID for Key
-    //rebuild this function tomorrow
     const shid = String(UEID.substring(CUTUUIDFROM,CUTUUIDTO)) 
-    // console.log(CUTUUIDFROM)
-    // console.log(CUTUUIDTO)
+
     const sshid = shid.replaceAll("-","")
     const key = sshid
-    // console.log("LoginKey: " + key)
-    // console.log("LoginCAT: " + CATOKEN)
+
 
     //process the CAT for UAK
     const strucat = String(CATOKEN)
@@ -51,6 +48,91 @@ exports.Loginuser = async function LogUser(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
             }
         })
 
+
+    })
+
+
+    
+}
+exports.UpdateUserName = async function UpdateUsername(UpdateUserName,CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
+    //process the UUID for Key
+    const shid = String(UEID.substring(CUTUUIDFROM,CUTUUIDTO)) 
+
+    const sshid = shid.replaceAll("-","")
+    const key = sshid
+ 
+
+    //process the CAT for UAK
+    const strucat = String(CATOKEN)
+    const decrypted = CryptoJS.AES.decrypt(strucat, key); 
+    const decres = decrypted.toString(CryptoJS.enc.Utf8) 
+    // console.log(decres)
+    const uak = String(decres.substring(process.env.cutUak,process.env.toUak)) //Shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
+    const uakk = uak 
+ 
+    
+    return new Promise((resolve,reject) => {
+        db.get(uakk).put({
+        
+            username: UpdateUserName
+    
+        })
+        db.get(uakk).once(v =>{
+            const res = v
+            if (res === ''){
+                reject(new Error("Failed to update the username,since no document exists"))
+            }
+
+            else{
+                
+                const Jsobject = "username updated to: " +  res.username
+                resolve(Jsobject)
+            }
+
+        })
+
+    })
+
+
+    
+}
+
+exports.UpdateMail = async function UpdateMail(UpdateMail,CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
+    //process the UUID for Key
+    const shid = String(UEID.substring(CUTUUIDFROM,CUTUUIDTO)) 
+
+    const sshid = shid.replaceAll("-","")
+    const key = sshid
+ 
+
+    //process the CAT for UAK
+    const strucat = String(CATOKEN)
+    const decrypted = CryptoJS.AES.decrypt(strucat, key); 
+    const decres = decrypted.toString(CryptoJS.enc.Utf8) 
+    // console.log(decres)
+    const uak = String(decres.substring(process.env.cutUak,process.env.toUak)) //Shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
+    const uakk = uak 
+ 
+    
+    return new Promise((resolve,reject) => {
+        db.get(uakk).put({
+        
+            mail: UpdateMail
+    
+        })
+        db.get(uakk).once(v =>{
+            const res = v
+            if (res === ''){
+                reject(new Error("Failed to update the mail,since no document exists"))
+            }
+
+            else{
+                
+                const Jsobject = "mail updated to: " + res.mail 
+                resolve(Jsobject)
+            }
+
+        })
 
     })
 
@@ -112,7 +194,8 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
     //put user cred into a file with UAK as its access hash
     const cred = await db.get(UserUAK).put({
         username: user,
-        password: pass
+        password: pass,
+        mail: email
     })
     const checkcred = await db.get(UserUAK).once(v =>{
         U_res = v
