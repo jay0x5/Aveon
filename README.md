@@ -68,7 +68,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
    - Samples folder includes all the sample files.
 
 ## Please checkout the documentation on how to use our npm package within your backend code
-## For Module based code which is being developed for NPM Package</br>[Main Development Focus]:
+## For Contributors who are gonna contribute to the NPM Package</br>[NPM package code]:
    ## *TOOLS*
    Any Stable versions of NodeJS, I am using Node v16.13
    The code is has been initially built and tested on Windows at the moment, Looking for someone who can handle the Linux Developement for this project
