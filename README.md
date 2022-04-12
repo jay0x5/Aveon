@@ -68,7 +68,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
    - Samples folder includes all the sample files.
 
 ## Please checkout the [documentation](https://github.com/jay0x5/Aveon/blob/ccc2d6ca9d6b6f6eb8f044262b4dcd2e1da49a0b/Package/README.md) on our github on how to use our npm package within your backend code
-## For Contributors who are gonna contribute to the NPM Package</br>[How to run NPM package code]:
+## For Contributors who are gonna contribute to the NPM Package</br>[How to run NPM package code for developement]:
    ## *TOOLS*
    Any Stable versions of NodeJS, I am using Node v16.13
    The code is has been initially built and tested on Windows at the moment, Looking for someone who can handle the Linux Developement for this project
