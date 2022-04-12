@@ -33,8 +33,8 @@ const username = "testuserbyjay"
 const password = "passwordbyjay"
 const mail = "mailbyjay"
 const uuid = 'uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd'
-const cutuuidfrom = 2 //feel free to play with
-const cutuuidto = 31 //feel free to play with
+const cutuuidfrom = 2 
+const cutuuidto = 31 
 const recoverysecret = "recoverysecretbyjay"
 
 
@@ -79,16 +79,11 @@ RegisterData = RegisterVariable.then(x=>
 
 ```js
 const aveon = require('aveon')
-// const dotenv = require('dotenv');
-// dotenv.config({path: './.env'})
 
-
-const EncCAT = "U2FsdGVkX192A5+OVJGvng/yyuYopvBHaVP26kfQ0VVww6YoaCcc1DN3oYtg2lBsX5k2ErysvjGf5wD/WFocbifnDViXig9fpZ1pjtfLTPwwg1cFhlmIhGAxedrMpwXG" //example of an encrypted cat
-const UUID = "uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd" //some UUID which i used for this user, but for your c
-const cutuuidfrom = 2 //my decision to cut UUID from 2,feel free to play with above values
-const cutuuidto = 31 // my decision to cut UUID till 31,feel free to play with above values
-
-//Note: UUID cutting parameters should be same while registering and login a specific user
+const EncCAT = "U2FsdGVkX192A5+OVJGvng/yyuYopvBHaVP26kfQ0VVww6YoaCcc1DN3oYtg2lBsX5k2ErysvjGf5wD/WFocbifnDViXig9fpZ1pjtfLTPwwg1cFhlmIhGAxedrMpwXG" 
+const UUID = "uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd" 
+const cutuuidfrom = 2 
+const cutuuidto = 31 
 
 const Loginvariable = aveon.Loginuser(EncCAT,UUID,cutuuidfrom,cutuuidto)
 
@@ -97,7 +92,29 @@ LoginData = Loginvariable.then(u=>{
     //console.log(u)
     console.log("Logged in: " + u.LoggedinAs) // Logged in as testusernamebyjay
 })
-
-
-//BOOM! login done!!!
 ```
+### Code-Explanation =>
+
+- Firstly we are importing/requiring the aveon package
+- Then we set some parameter variables which are supposed to be passed to the Login Function.Lets understand what parameters are being passed to the function and why?
+
+#### Parameters to be given to Login Function:
+
+1. **EncCat**: EncCat is basically Encrypted CAT which we stored on user's device during Registeration process.
+
+2. **UUID**: UUID is again the hardware ID of the specific user.
+
+3.**CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
+
+4.**CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
+
+#### NOTE- Please make sure that 2nd 3rd and 4th parameter were same for a specific user during their registeration and login process.
+
+- Parameters all set!
+
+- Now what we gonna do is set a variable to our Loginuser function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes username of the user.
+
+- Login all done HAHA!
+
+
+## It is my humble request to all the developers using the package to please contribute and improvise this package if needed.
