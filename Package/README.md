@@ -11,11 +11,11 @@
 
 ## How to use??
 
- - Its super easy to use this package :D
+### Its super easy to use this package :D
 
-### 1. Step1: ```npm i aveon```
+#### 1. Step1: ```npm i aveon```
 
-### 2. Step2: ```Checkout our code snippets below to understand the code usage```
+#### 2. Step2: ```Checkout our code snippets below to understand the code usage```
 
 
 ## Code Examples
