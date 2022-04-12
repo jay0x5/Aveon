@@ -20,35 +20,52 @@
 
 ## Code Examples
 
-### At the moment we have Register and login functions, but we are working on releasing other functions like update and delete too :D
+#### Note: At the moment we have Register and login functions, but we are working on releasing other functions like update and delete too :D
 
-#### **_How to Register??_**
+### **_How to Register??_**
 
 ```js
 
-//imports
+
 const aveon = require('aveon') 
 
-//important variables
 const username = "testuserbyjay"
 const password = "passwordbyjay"
 const mail = "mailbyjay"
 const uuid = 'uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd'
-const cutuuidfrom = 2
-const cutuuidto = 31
+const cutuuidfrom = 2 //feel free to play with
+const cutuuidto = 31 //feel free to play with
 const recoverysecret = "recoverysecretbyjay"
 
-//lets put aveon to work
+
 var RegisterVariable = aveon.RegisterUser(username,password,mail,uuid,cutuuidfrom,cutuuidto,recoverysecret)
 
-//lets get back important piece of data
 RegisterData = RegisterVariable.then(x=>
     {
-        console.log(x) // will print out the Json object with CAT token and URK token which is supposed to be sent to the user [CAT to be stored in user's device and URK to be stored in user's brain]  
+        console.log(x)   
     })
 
 //BOOM! registeration of user done right there!!!
 ```
+
+### Code-Explanation =>
+
+- Firstly we are importing/requiring the aveon package
+- Then we set some parameter variables which are supposed to be passed to the Register Function.Lets understand what parameters are being passed to the function and why?
+
+#### Parameters to be given to Register Function:
+
+1.Username,Password,Mail: I hope you all know why these 3 are important.
+
+2.UUID: UUID is basically hardware id of the user and a part of which will be used as a key for encrypting their CAT(ClientAccessToken). The part to be used as a key is determined by the developer using the package.
+
+3.CutUUIDFrom: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
+
+4.CutUUIDTo: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
+
+5.RecoverySecret: Just a secret phrase or key to be given by the developer which will be mixed with arbitary generation of each user's recovery document and URK(UserRecoveryKey)
+
+
 
 #### **_How to Login??_**
 
@@ -58,8 +75,8 @@ const aveon = require('aveon')
 // dotenv.config({path: './.env'})
 
 
-const EncCAT = "U2FsdGVkX192A5+OVJGvng/yyuYopvBHaVP26kfQ0VVww6YoaCcc1DN3oYtg2lBsX5k2ErysvjGf5wD/WFocbifnDViXig9fpZ1pjtfLTPwwg1cFhlmIhGAxedrMpwXG" //example of a encrypted cat
-const UUID = "uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd" //some UUID which i used for this user
+const EncCAT = "U2FsdGVkX192A5+OVJGvng/yyuYopvBHaVP26kfQ0VVww6YoaCcc1DN3oYtg2lBsX5k2ErysvjGf5wD/WFocbifnDViXig9fpZ1pjtfLTPwwg1cFhlmIhGAxedrMpwXG" //example of an encrypted cat
+const UUID = "uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd" //some UUID which i used for this user, but for your c
 const cutuuidfrom = 2 //my decision to cut UUID from 2,feel free to play with above values
 const cutuuidto = 31 // my decision to cut UUID till 31,feel free to play with above values
 
