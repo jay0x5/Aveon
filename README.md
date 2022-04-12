@@ -67,8 +67,8 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
    - Package folder includes an empty file at the moment and all the developement for npm package  version of this system will take place in Package folder.</br>
    - Samples folder includes all the sample files.
 
-## Please checkout the documentation on how to use our npm package within your backend code
-## For Contributors who are gonna contribute to the NPM Package</br>[NPM package code]:
+## Please checkout the [documentation](https://github.com/jay0x5/Aveon/blob/85601c161104f97bb5cdac993f9bd82da3bde3bd/Package/README.md) on our github on how to use our npm package within your backend code
+## For Contributors who are gonna contribute to the NPM Package</br>[How to run NPM package code]:
    ## *TOOLS*
    Any Stable versions of NodeJS, I am using Node v16.13
    The code is has been initially built and tested on Windows at the moment, Looking for someone who can handle the Linux Developement for this project
@@ -153,10 +153,10 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
     ```Command: node server.js``` -->
 
    
-  ### Step5: Check results
+  <!-- ### Step5: Check results
   A premade script has been provided to check your documents created, you may modify and run query.js file to achieve that.
 
-  ### NOTE: Instructions to test seperate modules for the npm package coming soon!!
+  ### NOTE: Instructions to test seperate modules for the npm package coming soon!! -->
 
  
    
