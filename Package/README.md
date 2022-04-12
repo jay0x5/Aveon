@@ -55,15 +55,23 @@ RegisterData = RegisterVariable.then(x=>
 
 #### Parameters to be given to Register Function:
 
-1.Username,Password,Mail: I hope you all know why these 3 are important.
+1.**Username**,**Password**,**Mail**: I hope you all know why these 3 are important.
 
-2.UUID: UUID is basically hardware id of the user and a part of which will be used as a key for encrypting their CAT(ClientAccessToken). The part to be used as a key is determined by the developer using the package.
+2.**UUID**: UUID is basically hardware id of the user and a part of which will be used as a key for encrypting their CAT(ClientAccessToken). The part to be used as a key is determined by the developer using the package.
 
-3.CutUUIDFrom: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
+3.**CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
 
-4.CutUUIDTo: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
+4.**CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
 
-5.RecoverySecret: Just a secret phrase or key to be given by the developer which will be mixed with arbitary generation of each user's recovery document and URK(UserRecoveryKey)
+5.**RecoverySecret**: Just a secret phrase or key to be given by the developer which will be mixed with arbitary generation of each user's recovery document and URK(UserRecoveryKey).
+
+- Parameters All Set!
+
+- Now what we gonna do is set a variable to our RegisterUser function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes CAT and URK. The developer is expected to send both of these to the frontend.
+
+- Just make it clear CAT to be stored in user's device and URK to be stored in user's brain.
+
+- Registeration all done HAHA!
 
 
 
