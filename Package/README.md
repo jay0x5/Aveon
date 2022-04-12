@@ -1,7 +1,7 @@
 ### Aveon NPM Package Walkthrough
 
 ## What is this?
- - Aveon is an open sourced, decentralized backend querying and data storing system being developed for better security than central databases based on GunDB.
+ - Aveon is an open sourced, decentralized backend querying and data storing system being developed for better security than central databases like Mysql,MongoDb,etc and is based on GunDB.
 
 ## Purpose of this?
  - The purpose of starting this project is to apply the concept of decentralization without actually using complex blockchains and solidity and stuff,To study decentralization and speculate the capacity of P2P networks and of course to provide a tool with better security than standard databases like MySql,MongoDb,etc.
