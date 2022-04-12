@@ -1,6 +1,6 @@
 {
   "name": "aveon",
-  "version": "1.0.7",
+  "version": "1.0.12",
   "description": "test description",
   "main": "index.js",
   "scripts": {

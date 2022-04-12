@@ -34,6 +34,7 @@ exports.LoginUser = async function LogUser(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
     //put in the uak to retrieve credentials
     return new Promise((resolve,reject) => {
         db.get(uakk).once(v =>{
+            // console.log(v)
             var res = v
             if (res === ''){
                 reject(new Error("Failed to find a logged in"))
@@ -43,7 +44,6 @@ exports.LoginUser = async function LogUser(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
             }
             else{
                 const Jsobject = {isLogged: "True",LoggedinAs:v.username}
-                // console.log(Jsobject)
                 resolve(Jsobject)
             }
         })
