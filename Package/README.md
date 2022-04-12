@@ -108,7 +108,7 @@ LoginData = Loginvariable.then(u=>{
 
 4. **CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
 
-#### NOTE- Please make sure that 2nd 3rd and 4th parameter were same for a specific user during their registeration and login process.
+#### NOTE- Please make sure that UUID, CutUUIDFrom and CutUUIDTo parameter were same for a specific user during their registeration and login process.
 
 - Parameters all set!
 
