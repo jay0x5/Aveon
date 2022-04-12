@@ -104,9 +104,9 @@ LoginData = Loginvariable.then(u=>{
 
 2. **UUID**: UUID is again the hardware ID of the specific user.
 
-3.**CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
+3. **CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
 
-4.**CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
+4. **CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
 
 #### NOTE- Please make sure that 2nd 3rd and 4th parameter were same for a specific user during their registeration and login process.
 
@@ -118,3 +118,5 @@ LoginData = Loginvariable.then(u=>{
 
 
 ## It is my humble request to all the developers using the package to please contribute and improvise this package if needed.
+
+## Thank you.
