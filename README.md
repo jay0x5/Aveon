@@ -53,7 +53,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 
  ## Workspace: Package folder
 
-### 1] Work on an update function for developer using the package to be able to update user-credentials inside documents
+### 1] Work on a delete function for developer using the package to be able to delete records produced on network and also do a lot of testings with update functions.
  
 
 
