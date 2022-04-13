@@ -6,9 +6,15 @@ be a weird bug? or i think i am doing something wrong??!*/
 accessed by any other location but this folder instead.*/
 
 
+
 const db = require('gun')();
+
 
 const noderesult = db.get('Enter desired URK/UAK value').once(v =>{
         console.log(v)
         });
+
+
+
+
 

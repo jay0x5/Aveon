@@ -28,7 +28,7 @@ exports.LoginUser = async function LogUser(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
     const decrypted = CryptoJS.AES.decrypt(strucat, key); 
     const decres = decrypted.toString(CryptoJS.enc.Utf8) 
     // console.log(decres)
-    const uak = String(decres.substring(process.env.cutUak,process.env.toUak)) //Shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
+    const uak = String(decres.substring(0,36)) //Shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
     const uakk = uak 
     // console.log("Loginuak: " + uakk)
     //put in the uak to retrieve credentials
@@ -67,7 +67,7 @@ exports.UpdateUserName = async function UpdateUsername(UpdateUserName,CATOKEN,UE
     const decrypted = CryptoJS.AES.decrypt(strucat, key); 
     const decres = decrypted.toString(CryptoJS.enc.Utf8) 
     // console.log(decres)
-    const uak = String(decres.substring(process.env.cutUak,process.env.toUak)) //Shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
+    const uak = String(decres.substring(0,36)) //Shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
     const uakk = uak 
  
     
@@ -85,7 +85,7 @@ exports.UpdateUserName = async function UpdateUsername(UpdateUserName,CATOKEN,UE
 
             else{
                 
-                const Jsobject = "username updated to: " +  res.username
+                const Jsobject = "username updated"
                 resolve(Jsobject)
             }
 
@@ -110,7 +110,7 @@ exports.UpdateMail = async function UpdateMail(UpdateMail,CATOKEN,UEID,CUTUUIDFR
     const decrypted = CryptoJS.AES.decrypt(strucat, key); 
     const decres = decrypted.toString(CryptoJS.enc.Utf8) 
     // console.log(decres)
-    const uak = String(decres.substring(process.env.cutUak,process.env.toUak)) //Shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
+    const uak = String(decres.substring(0,36)) //Shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
     const uakk = uak 
  
     
@@ -128,7 +128,7 @@ exports.UpdateMail = async function UpdateMail(UpdateMail,CATOKEN,UEID,CUTUUIDFR
 
             else{
                 
-                const Jsobject = "mail updated to: " + res.mail 
+                const Jsobject = "mail updated"
                 resolve(Jsobject)
             }
 
@@ -144,7 +144,7 @@ async function CreateRecoveryDoc(u,userN,encat,urk){
     const USEKEY = userN
     const ENCAT = encat
     u[USEKEY] = ENCAT
-    const data = db.get(ENCAT).put({
+    const data = await db.get(ENCAT).put({
         u
     });
     return new Promise( (resolve,reject) => {
