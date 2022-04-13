@@ -51,9 +51,42 @@ exports.LoginUser = async function LogUser(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
 
     })
 
-
-    
+ 
 }
+
+exports.MigrateUser = async function MigrateUser(MDT,URK){
+
+    var decrypted = CryptoJS.AES.decrypt(MDT, URK); 
+    var miguak = decrypted.toString(CryptoJS.enc.Utf8)
+    console.log("Encryption: "+ miguak) 
+
+    return new Promise((resolve,reject) => {
+        db.get(miguak).once(v =>{
+            // console.log(v)
+            var res = v
+            if (res === ''){
+                reject(new Error("Failed to find a logged in"))
+                const Jsobject = {isLogged: "False"}
+                // console.log(Jsobject)
+                resolve(Jsobject)
+            }
+            else{
+                const Jsobject = {isLogged: "True",LoggedinAs:v.username}
+                resolve(Jsobject)
+            }
+        })
+
+
+    })
+}
+
+
+
+
+
+
+
+
 exports.UpdateUserName = async function UpdateUsername(UpdateUserName,CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
     //process the UUID for Key
     const shid = String(UEID.substring(CUTUUIDFROM,CUTUUIDTO)) 
@@ -140,7 +173,7 @@ exports.UpdateMail = async function UpdateMail(UpdateMail,CATOKEN,UEID,CUTUUIDFR
     
 }
 
-async function CreateRecoveryDoc(u,userN,encat,urk){
+async function CreateRecoveryDoc(u,userN,encat,urk,mdt){
     const USEKEY = userN
     const ENCAT = encat
     u[USEKEY] = ENCAT
@@ -154,7 +187,7 @@ async function CreateRecoveryDoc(u,userN,encat,urk){
                 reject(new Error("Failed to create a recovery doc"))
             }
             else{
-                const Jsobject = {CAT:encat,URK:urk,isRecoveryDoc:"True"}
+                const Jsobject = {CAT:encat,URK:urk,MDT:mdt,isRecoveryDoc:"True"}
                 // console.log(Jsobject)
                 resolve( Jsobject)
             }
@@ -218,7 +251,8 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
 
     //Creation of MDT[MultiDeviceToken]
     var MDT = CryptoJS.AES.encrypt(UserUAK, URK);
-    console.log(MDT.toString())
+    var ENCMDT = MDT.toString()
+    console.log(ENCMDT)
 
     const defdata = await db.get(URK).put({
         default: 'defaultID'
@@ -226,7 +260,7 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
   
     return new Promise( resolve => 
         db.get(URK).once(
-           u => resolve( CreateRecoveryDoc(u,userN,encat,URK))
+           u => resolve( CreateRecoveryDoc(u,userN,encat,URK,ENCMDT))
            
         )
      );
