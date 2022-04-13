@@ -215,6 +215,11 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
     //create a unique recovery doc access key of user(URK)
     const URK = uuidv4() + RECSECRET //generate unique URK for every user
     // console.log("URK: " + URK)
+
+    //Creation of MDT[MultiDeviceToken]
+    var MDT = CryptoJS.AES.encrypt(UserUAK, URK);
+    console.log(MDT.toString())
+
     const defdata = await db.get(URK).put({
         default: 'defaultID'
     })
