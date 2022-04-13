@@ -28,7 +28,7 @@ Basically to speculate if an easier and highly secure counterpart of blockchain 
    In a highly unlikely attempt of a credential breach into the network,since the person attempting the breach    will need to have physical access to each user device to actually try to manipulate secured CAT and gain access.
    
 # Upcoming Feature:
-## MDT [MultiDeviceToken] which will let user log into their account from multiple devices without having to worry about exposing any sensitive data
+## MDT [MultiDeviceToken] will let user log into their account from multiple devices without having to worry about exposing any sensitive data
 
 # But... How does it work?
 
