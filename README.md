@@ -68,9 +68,6 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 
 
 # Getting Started
-# Warning!!
-
-  - Since it is still under Developement, it is not recommended to use this system with any of your professional work like websites or apps.
   
 # File Structure:
    - Initial folder includes the server.js file which is the main code initially built.</br>
