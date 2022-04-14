@@ -58,7 +58,7 @@ exports.MigrateUser = async function MigrateUser(MDT,URK){
 
     var decrypted = CryptoJS.AES.decrypt(MDT, URK); 
     var miguak = decrypted.toString(CryptoJS.enc.Utf8)
-    console.log("Encryption: "+ miguak) 
+    // console.log("Encryption: "+ miguak) 
 
     return new Promise((resolve,reject) => {
         db.get(miguak).once(v =>{
@@ -252,7 +252,7 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
     //Creation of MDT[MultiDeviceToken]
     var MDT = CryptoJS.AES.encrypt(UserUAK, URK);
     var ENCMDT = MDT.toString()
-    console.log(ENCMDT)
+    //console.log(ENCMDT)
 
     const defdata = await db.get(URK).put({
         default: 'defaultID'
