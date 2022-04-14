@@ -28,8 +28,7 @@ Basically to speculate if an easier and highly secure counterpart of blockchain 
 6. ### NO CENTRAL MESS:
    In a highly unlikely attempt of a credential breach into the network,since the person attempting the breach    will need to have physical access to each user device to actually try to manipulate secured CAT and gain access.
    
-# Upcoming Feature:
-## MDT [MultiDeviceToken] will let user log into their account from multiple devices without having to worry about exposing any sensitive data
+
 
 # But... How does it work?
 
@@ -58,7 +57,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 
 ### 1] Work on a delete function for developer using the package to be able to delete records produced on network and also do a lot of testings with update functions.
 
-### 2] Test MDT [MultiDeviceTokens] and release them in package.
+### 2] Work on storing User Relations within the Auth functions
  
 
 
