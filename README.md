@@ -27,6 +27,9 @@ Basically to speculate if an easier and highly secure counterpart of blockchain 
    
 6. ### NO CENTRAL MESS:
    In a highly unlikely attempt of a credential breach into the network,since the person attempting the breach    will need to have physical access to each user device to actually try to manipulate secured CAT and gain access.
+
+7. ### Secure The package:
+   URK and MDT tokens are supposed to be stored in a secure place by the user.
    
 
 
@@ -35,11 +38,12 @@ Basically to speculate if an easier and highly secure counterpart of blockchain 
 
 ![b61466cc462bf5a13fef21ef40b710df](https://user-images.githubusercontent.com/78173760/161983977-625fe5f1-b4c5-4387-be27-3cfcf3b5f4fa.png)
 
-Well its quite simple, At the moment the whole system has 3 key components UAK,URK,CAT and of course the GUNDB Network</br>
+Well its quite simple, At the moment the whole system has 3 key components UAK,URK,CAT,MDT and of course the GUNDB Network</br>
 - UAK stands for UserAccessKey and is the actual hash to access user ~~personal~~ data _**credentials_**,used for accessing credentials & relations purpose</br>
-- URK stands for UserRecoveryKey and is the actual key ~~linked~~ **_uniquely linked_** to each user on the network,used for recovery purpose</br>
-- CAT stands for ~~User~~ ClientAccessToken and is passed on to user and also holds many **secrets** like UAK,used for accessing UAK</br>
-- GunDb network allows distribution of User-Credentials in a ~~Centralized~~ **_Decentralized_** Manner</br>
+- URK stands for UserRecoveryKey and is the actual key ~~linked~~ **_uniquely linked_** to each user on the network,used for recovery purpose.</br>
+- CAT stands for ~~User~~ ClientAccessToken and is passed on to user and also holds many **secrets** like UAK,used for accessing UAK.</br>
+- MDT stands for Multi Device Token and as the name suggests it is used to let user login to multiple devices without having to worry about ~~remembering~~ their password or anything.</br>
+- GunDb network allows distribution of User-Credentials in a ~~Centralized~~ **_Decentralized_** Manner.</br>
 
 
 
@@ -57,7 +61,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 
 ### 1] Work on a delete function for developer using the package to be able to delete records produced on network and also do a lot of testings with update functions.
 
-### 2] Work on storing User Relations within the Auth functions
+### 2] Work on storing Basic User Relations like User Profile picture and User about me within the Auth functions.
  
 
 
