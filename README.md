@@ -48,11 +48,13 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 
 
 ## 1. General System Scheme:
-  ![20220408_111555](https://user-images.githubusercontent.com/78173760/162372588-86a48c9a-d1d2-4672-bc1a-5148e5f0ebbb.jpg)
+![20220414_150137](https://user-images.githubusercontent.com/78173760/163358101-73b72581-6bed-4557-89ee-119c427df9c3.jpg)
+
+
 
   
 ## 2. Component Scheme:
-![Screenshot 2022-04-08 122038](https://user-images.githubusercontent.com/78173760/162380341-f55656bc-c053-4725-a795-6bb769cdb64d.png)
+![struuuuaaaa](https://user-images.githubusercontent.com/78173760/163357910-ae2d69f5-c5ef-4647-9d79-fbbe6f9f73b5.jpg)
 
 
 # TODOS [Will be updated everytime a task is completed or has been created]
