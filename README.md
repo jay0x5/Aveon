@@ -167,7 +167,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
    
    
 # Future Goals for the Project   
- - We will be pushing to launch this whole system as a tool for every developer to use, i just hope that enough contributions are made with a strong feedback
+ - Our Auth Tools are already in beta and we will soon be expanding for availability of tools which would allow diverse data storage.
  
 # Contributions
  - Kindly refer to [CONTRIBUTIONS](https://github.com/jay0x5/Aveon/blob/1ab181d16e535606393381f5374df08498578eb0/contributions.md) file on how one can contribute to the project.
