@@ -21,7 +21,8 @@
 
 ## Code Examples
 
-#### Note: At the moment we have Register and login functions, but we are working on releasing other functions like update and delete too :D
+#### Note: At the moment we have Basic Auth functions like Register,Login,Update and we will soon release functions for storing user relations.
+
 
 ### **_How to Register??_**
 
@@ -117,6 +118,82 @@ LoginData = Loginvariable.then(u=>{
 
 - Login all done HAHA!
 
+
+#### **_How to Update??_**
+ 
+#### Update the Username
+```js
+const aveon = require("aveon")
+
+const EncCAT = "U2FsdGVkX18RwW3XquEpiGO0vGRvwdQBjIKumevo6/AHwPzrF/OMqKB9+PonIf+7tgJFv2jC1lP9IYEbX49CEDHiWK/MPUiNq6DywPperM/EwvQcIlcB4Bk988bkA6KY"
+const UUID = "uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd"
+const cutuuidfrom = 2
+const cutuuidto = 31
+const UpdatedUname = "NewUsername"
+
+const updateun = aveon.UpdateUserName(UpdatedUname,EncCAT,UUID,cutuuidfrom,cutuuidto)
+
+UpdateUnData = updateun.then(l=>{
+
+    console.log(l)
+})
+```
+#### Parameters to be given to UpdateUserName Function:
+
+1. **UpdatedUname**: Basically the new username which user wishes to use. 
+
+2. **EncCat**: EncCat is basically Encrypted CAT which we stored on user's device during Registeration process.
+
+3. **UUID**: UUID is again the hardware ID of the specific user.
+
+4. **CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
+
+5. **CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
+
+-Parameters all set!
+
+- Now what we gonna do is set a variable to our UpdateUserName function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes a simple string message "username updated".
+
+- username updated!Cheers!
+
+
+##### Update the Mail
+```js
+const aveon = require("aveon")
+
+const EncCAT = "U2FsdGVkX18RwW3XquEpiGO0vGRvwdQBjIKumevo6/AHwPzrF/OMqKB9+PonIf+7tgJFv2jC1lP9IYEbX49CEDHiWK/MPUiNq6DywPperM/EwvQcIlcB4Bk988bkA6KY"
+const UUID = "uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd"
+const cutuuidfrom = 2
+const cutuuidto = 31
+const UpdatedMailID = "NewMail@test.com"
+
+
+const updatemail = aveon.UpdateMail(UpdatedMailID,EncCAT,UUID,cutuuidfrom,cutuuidto)
+
+UpdateMaData = updatemail.then(k=>{
+
+    console.log(k)
+})
+```
+#### Parameters to be given to UpdateMail Function:
+
+1. **UpdatedMailID**: Basically the new mail which user wishes to use. 
+
+2. **EncCat**: EncCat is basically Encrypted CAT which we stored on user's device during Registeration process.
+
+3. **UUID**: UUID is again the hardware ID of the specific user.
+
+4. **CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
+
+5. **CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
+
+#### NOTE- Please make sure that UUID, CutUUIDFrom and CutUUIDTo parameter were same for a specific user during their registeration and login process.
+
+-Parameters all set!
+
+- Now what we gonna do is set a variable to our UpdateMail function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes a simple string message "mail updated".
+
+- mail updated!Cheers!
 
 ## It is my humble request to all the developers using the package to please contribute and improvise this package if needed.
 
