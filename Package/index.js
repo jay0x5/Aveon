@@ -15,6 +15,85 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
 
+
+exports.AddUserRelations = async function user_relations(UserRelationsObject,CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
+    const shid = String(UEID.substring(CUTUUIDFROM,CUTUUIDTO)) 
+
+    const sshid = shid.replaceAll("-","")
+    const key = sshid
+ 
+    
+
+    //process the CAT for UAK
+    const strucat = String(CATOKEN)
+    const decrypted = CryptoJS.AES.decrypt(strucat, key); 
+    const decres = decrypted.toString(CryptoJS.enc.Utf8) 
+    // console.log(decres)
+    const uak = String(decres.substring(0,36)) //Shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
+    const uakk = uak 
+     
+    //converting the passed relations object as a string
+    const RelationsObj = JSON.stringify(UserRelationsObject)
+    
+    return new Promise((resolve,reject) => {
+        db.get(uakk).put({
+        
+            RelationsObj //relations are stored as a string
+    
+        })
+        db.get(uakk).once(v =>{
+            const res = v
+            if (res === ''){
+                reject(new Error("Failed to add the user relations since user doesnt exist!"))
+            }
+
+            else{
+                
+                const Jsobject = "Added passed user relations"
+                resolve(Jsobject)
+            }
+
+        })
+
+    })}
+
+
+
+    exports.FetchUserRelations = async function user_relations_fetch(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
+        const shid = String(UEID.substring(CUTUUIDFROM,CUTUUIDTO)) 
+    
+        const sshid = shid.replaceAll("-","")
+        const key = sshid
+     
+    
+        //process the CAT for UAK
+        const strucat = String(CATOKEN)
+        const decrypted = CryptoJS.AES.decrypt(strucat, key); 
+        const decres = decrypted.toString(CryptoJS.enc.Utf8) 
+        // console.log(decres)
+        const uak = String(decres.substring(0,36)) //Shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
+        const uakk = uak 
+     
+        
+        return new Promise((resolve,reject) => {
+            db.get(uakk).once(v =>{
+                const res = v
+                if (res === ''){
+                    reject(new Error("Failed to add the user relations since user doesnt exist!"))
+                }
+    
+                else{
+                    
+                    const dataobject = JSON.parse(v.RelationsObj)
+                    resolve(dataobject)
+                }
+    
+            })
+    
+        })}
+
+
+
 exports.LoginUser = async function LogUser(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
     //process the UUID for Key
     const shid = String(UEID.substring(CUTUUIDFROM,CUTUUIDTO)) 
@@ -43,7 +122,7 @@ exports.LoginUser = async function LogUser(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
                 resolve(Jsobject)
             }
             else{
-                const Jsobject = {isLogged: "True",LoggedinAs:v.username}
+                const Jsobject = {isLogged: "True",LoggedinAs:v.username,userObject:v}
                 resolve(Jsobject)
             }
         })
@@ -71,7 +150,7 @@ exports.MigrateUser = async function MigrateUser(MDT,URK){
                 resolve(Jsobject)
             }
             else{
-                const Jsobject = {isLogged: "True",LoggedinAs:v.username}
+                const Jsobject = {isLogged: "True",LoggedinAs:v.username,userObject:v}
                 resolve(Jsobject)
             }
         })
@@ -173,7 +252,7 @@ exports.UpdateMail = async function UpdateMail(UpdateMail,CATOKEN,UEID,CUTUUIDFR
     
 }
 
-async function CreateRecoveryDoc(u,userN,encat,urk,mdt){
+async function CreateRecoveryDoc(u,userN,encat,urk,mdt,uak){
     const USEKEY = userN
     const ENCAT = encat
     u[USEKEY] = ENCAT
@@ -187,13 +266,20 @@ async function CreateRecoveryDoc(u,userN,encat,urk,mdt){
                 reject(new Error("Failed to create a recovery doc"))
             }
             else{
-                const Jsobject = {CAT:encat,URK:urk,MDT:mdt,isRecoveryDoc:"True"}
-                // console.log(Jsobject)
-                resolve( Jsobject)
+                 db.get(UserUAK).once(D =>{
+                    const Jsobject = {CAT:encat,URK:urk,MDT:mdt,isRecoveryDoc:"True",userObject:D,uak:uak}
+                    // console.log(Jsobject)
+                    resolve( Jsobject)
+                    
+                })
+               
             }
         })
     });
 }
+
+
+
 
 
 exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFROM,CUTUUIDTO,RECSECRET){
@@ -260,7 +346,7 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
   
     return new Promise( resolve => 
         db.get(URK).once(
-           u => resolve( CreateRecoveryDoc(u,userN,encat,URK,ENCMDT))
+           u => resolve( CreateRecoveryDoc(u,userN,encat,URK,ENCMDT,UserUAK))
            
         )
      );
