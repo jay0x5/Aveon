@@ -69,9 +69,11 @@ RegisterData = RegisterVariable.then(x=>
 
 - Parameters All Set!
 
-- Now what we gonna do is set a variable to our RegisterUser function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes CAT and URK. The developer is expected to send both of these to the frontend.
+- Now what we gonna do is set a variable to our RegisterUser function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes CAT,URK and MDT. The developer is expected to send both of these to the frontend.
 
-- Just make it clear CAT to be stored in user's device and URK to be stored in user's brain.
+- Just make it clear CAT to be stored in user's device.
+
+- URK and MDT are supposed to be stored securely by user just like secret phrase keys.
 
 - Registeration all done HAHA!
 
