@@ -76,7 +76,7 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 
 ## For developers who want to straight away use our NPM Package, kindly checkout below sources:
 
- - [Github-Documentation](https://github.com/jay0x5/Aveon/blob/85fa2352e906c00de1d797320b805b83da1b5842/Package/README.md)
+ - [Github-Documentation](https://github.com/jay0x5/Aveon/blob/d653ffdabca9b6a157ee80190fa8b6d2c5f97023/Package/README.md)
  - [NPM-Documentation](https://www.npmjs.com/package/aveon)
  - Website Documentation soon!
 
