@@ -157,7 +157,7 @@ UpdateUnData = updateun.then(l=>{
 - username updated!Cheers!
 
 
-##### Update the Mail
+#### Update the Mail
 ```js
 const aveon = require("aveon")
 
@@ -194,6 +194,54 @@ UpdateMaData = updatemail.then(k=>{
 - Now what we gonna do is set a variable to our UpdateMail function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes a simple string message "mail updated".
 
 - mail updated!Cheers!
+
+
+#### **_How to Add/Fetch User Relations??_**
+
+- In case with Aveon, User Relations are defined as every single property linked to a single user on the social network of developer who is developing with Aveon package.
+
+- For example: User's About me, User's Profile Picture, User's friend list or following list,etc
+
+- With Aveon, developer has freedom to put in any user relation of their choice by simply creating a json object of the relation and passing it to methods. Lets take a look at Adding Relations below
+
+#### Add Relations
+
+```js
+const aveon = require('aveon')
+
+const RelationsObj = {UserPfp: "pfpPOGGIES",Userbio: "bioXD",UserFollowings: "FOLLOWING SHEESH"}
+
+const EncCat = "U2FsdGVkX1+V3qcqmv7fyqwgDsgshuar45mMiaHR61wuTlyxoJ7L7YPGiw365d294FskLKVXpixLsgIgAOPOLCWpK+osU9nfPEAyea7QY0izvZr1ujJt+LdbAngIWVkg"
+const uuid = 'uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd'
+const cutuuidfrom = 2
+const cutuuidto = 31
+
+const addrel = aveon.AddUserRelations(RelationsObj,EncCat,uuid,cutuuidfrom,cutuuidto)
+
+addedresult = addrel.then(x=>{console.log(x)})
+
+console.log(addedresult)
+```
+#### Parameters to be given to UpdateMail Function:
+
+1. **RelationsObj**: Basically all user relations which I am storing in above example with a specific user like user's pfp reference, user's bio and user's following and I hope you all can notice that I or anyone using this package as a developer has freedom to put any form of user relation within the object and then pass that whole object to add function.
+
+2. **EncCat**: EncCat is basically Encrypted CAT which we stored on user's device during Registeration process.
+
+3. **uuid**: UUID is again the hardware ID of the specific user.
+
+4. **CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
+
+5. **CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
+
+#### NOTE- Please make sure that UUID, CutUUIDFrom and CutUUIDTo parameter were same for a specific user during their registeration and login process.
+
+-Parameters all set!
+
+- Now what we gonna do is set a variable to our AddUserRelations function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes a simple string message "Added passed user relations".
+
+- user-relation added!Cheers!
+
 
 ## It is my humble request to all the developers using the package to please contribute and improvise this package if needed.
 

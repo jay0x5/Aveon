@@ -252,7 +252,7 @@ exports.UpdateMail = async function UpdateMail(UpdateMail,CATOKEN,UEID,CUTUUIDFR
     
 }
 
-async function CreateRecoveryDoc(u,userN,encat,urk,mdt,uak){
+async function CreateRecoveryDoc(u,userN,encat,urk,mdt){
     const USEKEY = userN
     const ENCAT = encat
     u[USEKEY] = ENCAT
@@ -267,7 +267,7 @@ async function CreateRecoveryDoc(u,userN,encat,urk,mdt,uak){
             }
             else{
                  db.get(UserUAK).once(D =>{
-                    const Jsobject = {CAT:encat,URK:urk,MDT:mdt,isRecoveryDoc:"True",userObject:D,uak:uak}
+                    const Jsobject = {CAT:encat,URK:urk,MDT:mdt,isRecoveryDoc:"True",userObject:D}
                     // console.log(Jsobject)
                     resolve( Jsobject)
                     
@@ -346,7 +346,7 @@ exports.RegisterUser = async function RegisterUser(user,pass,email,HID,CUTUUIDFR
   
     return new Promise( resolve => 
         db.get(URK).once(
-           u => resolve( CreateRecoveryDoc(u,userN,encat,URK,ENCMDT,UserUAK))
+           u => resolve( CreateRecoveryDoc(u,userN,encat,URK,ENCMDT))
            
         )
      );
