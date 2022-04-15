@@ -109,6 +109,14 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 
   - **package.json**: package file created after npm init.
 
+  - **updatetest.js**: file which tests functionality of Update functions.
+
+  -**user_relations.js**: file which tests functionality of adding user relation function.
+
+  -**fetch_relations.js**: file which tests functionality of fetching the user relation function.
+
+  -**mdt-test.js**: file which tests multi-device-token functionality.
+
 
   ### Running the code:
    
