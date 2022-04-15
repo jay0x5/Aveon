@@ -23,7 +23,9 @@
 
 #### Note: At the moment we have Basic Auth functions like Register,Login,Update and we will soon release functions for storing user relations.
 
-## Warning[PLEASE READ!]:</br></br>All the parameters in example code snippets were specifically generated for example showcase and are not meant to be used in production by developer.</br></br>It is strictly advised to follow the Instructions mentioned in the Parameters section of each snippet otherwise contact the developer team via Issues on Github or by mail if you have any doubts or queries regarding anything.
+## Warning[PLEASE READ!]:</br></br>
+- All the parameters in example code snippets were specifically generated for example showcase and are not meant to be used in production by developer.
+- It is strictly advised to follow the Instructions mentioned in the Parameters section of each snippet otherwise contact the developer team via Issues on Github or by mail if you have any doubts or queries regarding anything.
 
 
 ## **_How to Register??_**
