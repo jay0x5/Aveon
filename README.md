@@ -74,7 +74,13 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
    - Package folder includes an empty file at the moment and all the developement for npm package  version of this system will take place in Package folder.</br>
    - Samples folder includes all the sample files.
 
-## Please checkout the [documentation](https://github.com/jay0x5/Aveon/blob/2504dff8dee14a43b6b11af13d23e56ef670bc15/Package/README.md) on our github on how to use our npm package within your backend code
+## For developers who want to straight away use our NPM Package, kindly checkout below sources:
+
+ - [Github-Documentation]()
+ - [NPM-Documentation]()
+ - Website Documentation soon!
+
+
 ## For Contributors who are gonna contribute to the NPM Package</br>[How to run NPM package code for developement]:
    ## *TOOLS*
    Any Stable versions of NodeJS, I am using Node v16.13

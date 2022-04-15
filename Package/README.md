@@ -150,7 +150,7 @@ UpdateUnData = updateun.then(l=>{
 
 5. **CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
 
--Parameters all set!
+- Parameters all set!
 
 - Now what we gonna do is set a variable to our UpdateUserName function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes a simple string message "username updated".
 
@@ -189,7 +189,7 @@ UpdateMaData = updatemail.then(k=>{
 
 #### NOTE- Please make sure that UUID, CutUUIDFrom and CutUUIDTo parameter were same for a specific user during their registeration and login process.
 
--Parameters all set!
+- Parameters all set!
 
 - Now what we gonna do is set a variable to our UpdateMail function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes a simple string message "mail updated".
 
@@ -236,11 +236,44 @@ console.log(addedresult)
 
 #### NOTE- Please make sure that UUID, CutUUIDFrom and CutUUIDTo parameter were same for a specific user during their registeration and login process.
 
--Parameters all set!
+- Parameters all set!
 
 - Now what we gonna do is set a variable to our AddUserRelations function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes a simple string message "Added passed user relations".
 
-- user-relation added!Cheers!
+- user-relations added!Cheers!
+
+
+#### Fetch Relations
+```js
+const aveon = require('aveon')
+
+
+const cat = "U2FsdGVkX1+V3qcqmv7fyqwgDsgshuar45mMiaHR61wuTlyxoJ7L7YPGiw365d294FskLKVXpixLsgIgAOPOLCWpK+osU9nfPEAyea7QY0izvZr1ujJt+LdbAngIWVkg"
+const uuid = 'uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd'
+
+const fetchdata = aveon.FetchUserRelations(cat,uuid,2,31)
+
+fetchedresult = fetchdata.then(x=>{console.log(x)})
+console.log(fetchedresult)
+```
+#### Parameters to be given to UpdateMail Function:
+
+1. **EncCat**: EncCat is basically Encrypted CAT which we stored on user's device during Registeration process.
+
+2. **uuid**: UUID is again the hardware ID of the specific user.
+
+3. **CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
+
+4. **CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
+
+#### NOTE- Please make sure that UUID, CutUUIDFrom and CutUUIDTo parameter were same for a specific user during their registeration and login process.
+
+- Parameters all set!
+
+- Now what we gonna do is set a variable to our AddUserRelations function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes the user relations object which was added with the help of add function.
+
+- user-relations fetched! It is simple as that :D
+
 
 
 ## It is my humble request to all the developers using the package to please contribute and improvise this package if needed.
