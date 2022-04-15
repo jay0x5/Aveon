@@ -24,7 +24,7 @@
 #### Note: At the moment we have Basic Auth functions like Register,Login,Update and we will soon release functions for storing user relations.
 
 
-### **_How to Register??_**
+## **_How to Register??_**
 
 ```js
 
@@ -77,7 +77,7 @@ RegisterData = RegisterVariable.then(x=>
 
 
 
-#### **_How to Login??_**
+## **_How to Login??_**
 
 ```js
 const aveon = require('aveon')
@@ -119,7 +119,7 @@ LoginData = Loginvariable.then(u=>{
 - Login all done HAHA!
 
 
-#### **_How to Update??_**
+## **_How to Update??_**
  
 #### Update the Username
 ```js
@@ -196,7 +196,7 @@ UpdateMaData = updatemail.then(k=>{
 - mail updated!Cheers!
 
 
-#### **_How to Add/Fetch User Relations??_**
+## **_How to Add/Fetch User Relations??_**
 
 - In case with Aveon, User Relations are defined as every single property linked to a single user on the social network of developer who is developing with Aveon package.
 
@@ -222,7 +222,7 @@ addedresult = addrel.then(x=>{console.log(x)})
 
 console.log(addedresult)
 ```
-#### Parameters to be given to UpdateMail Function:
+#### Parameters to be given to AddUserRelations Function:
 
 1. **RelationsObj**: Basically all user relations which I am storing in above example with a specific user like user's pfp reference, user's bio and user's following and I hope you all can notice that I or anyone using this package as a developer has freedom to put any form of user relation within the object and then pass that whole object to add function.
 
@@ -256,7 +256,7 @@ const fetchdata = aveon.FetchUserRelations(cat,uuid,2,31)
 fetchedresult = fetchdata.then(x=>{console.log(x)})
 console.log(fetchedresult)
 ```
-#### Parameters to be given to UpdateMail Function:
+#### Parameters to be given to FetchUserRelations Function:
 
 1. **EncCat**: EncCat is basically Encrypted CAT which we stored on user's device during Registeration process.
 
@@ -273,6 +273,27 @@ console.log(fetchedresult)
 - Now what we gonna do is set a variable to our AddUserRelations function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes the user relations object which was added with the help of add function.
 
 - user-relations fetched! It is simple as that :D
+
+
+## **_How to store any type of data developer wishes to?_**
+
+- Apart from Secure Auth abilities,Aveon also provides the developer with an option to store whatever they wish to in form of JSON Object.
+
+- We are still working on planning out this feature and will be rolled out soon!Stay Tuned to our [twitter](https://twitter.com/AveonJS?s=20&t=VthMNi8g5QVt0egC8Y_q1g) or our [mail](contactaveon@gmail.com) us your questions :D
+
+**Example**:
+
+```js
+
+
+
+
+
+
+
+
+
+```
 
 
 
