@@ -275,11 +275,11 @@ console.log(fetchedresult)
 - user-relations fetched! It is simple as that :D
 
 
-## **_How to store any type of data developer wishes to?_**
+## **_How to store any type of data?_**
 
 - Apart from Secure Auth abilities,Aveon also provides the developer with an option to store whatever they wish to in form of JSON Object.
 
-- We are still working on planning out this feature and will be rolled out soon!Stay Tuned to our [twitter](https://twitter.com/AveonJS?s=20&t=VthMNi8g5QVt0egC8Y_q1g) or our [mail](contactaveon@gmail.com) us your questions :D
+- We are still planning out this feature and will be rolled out soon!</br>Stay Tuned to our [twitter](https://twitter.com/AveonJS?s=20&t=VthMNi8g5QVt0egC8Y_q1g) or our [mail](contactaveon@gmail.com) us your questions :D
 
 **Example**:
 
