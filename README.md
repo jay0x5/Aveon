@@ -63,7 +63,8 @@ Well its quite simple, At the moment the whole system has 3 key components UAK,U
 
 ### 1] Work on a delete function for developer using the package to be able to delete records produced on network and also do a lot of testings with update functions.
 
-### 2] Work on storing Basic User Relations like User Profile picture and User about me within the Auth functions.
+  ## Workspace: Samples folder
+### 2] Build a sample app with Aveon's Auth Functions.
  
 
 
