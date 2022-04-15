@@ -59,7 +59,7 @@ RegisterData = RegisterVariable.then(x=>
 
 1.**Username**,**Password**,**Mail**: I hope you all know why these 3 are important.
 
-2.**UUID**: UUID is basically hardware id of the user and a part of which will be used as a key for encrypting their CAT(ClientAccessToken). The part to be used as a key is determined by the developer using the package.
+2.**UUID**: UUID is basically anything which uniquely identifies a user, in case of apps which have access to system informtion UUID can be Hardware UUID and for websites it can be browser UUID of the user and a part of which will be used as a key for encrypting their CAT(ClientAccessToken). The part to be used as a key is determined by the developer using the package.
 
 3.**CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
 
@@ -104,7 +104,7 @@ LoginData = Loginvariable.then(u=>{
 
 1. **EncCat**: EncCat is basically Encrypted CAT which we stored on user's device during Registeration process.
 
-2. **UUID**: UUID is again the hardware ID of the specific user.
+2. **UUID**: UUID is again basically anything which uniquely identifies a user, in case of apps which have access to system informtion UUID can be Hardware UUID and for websites it can be browser UUID.
 
 3. **CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
 
@@ -144,7 +144,7 @@ UpdateUnData = updateun.then(l=>{
 
 2. **EncCat**: EncCat is basically Encrypted CAT which we stored on user's device during Registeration process.
 
-3. **UUID**: UUID is again the hardware ID of the specific user.
+3. **UUID**: UUID is again basically anything which uniquely identifies a user, in case of apps which have access to system informtion UUID can be Hardware UUID and for websites it can be browser UUID.
 
 4. **CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
 
@@ -181,7 +181,7 @@ UpdateMaData = updatemail.then(k=>{
 
 2. **EncCat**: EncCat is basically Encrypted CAT which we stored on user's device during Registeration process.
 
-3. **UUID**: UUID is again the hardware ID of the specific user.
+3. **UUID**: UUID is again basically anything which uniquely identifies a user, in case of apps which have access to system informtion UUID can be Hardware UUID and for websites it can be browser UUID.
 
 4. **CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
 
@@ -228,7 +228,7 @@ console.log(addedresult)
 
 2. **EncCat**: EncCat is basically Encrypted CAT which we stored on user's device during Registeration process.
 
-3. **uuid**: UUID is again the hardware ID of the specific user.
+3. **uuid**: UUID is again basically anything which uniquely identifies a user, in case of apps which have access to system informtion UUID can be Hardware UUID and for websites it can be browser UUID.
 
 4. **CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
 
@@ -260,7 +260,7 @@ console.log(fetchedresult)
 
 1. **EncCat**: EncCat is basically Encrypted CAT which we stored on user's device during Registeration process.
 
-2. **uuid**: UUID is again the hardware ID of the specific user.
+2. **uuid**: UUID is again basically anything which uniquely identifies a user, in case of apps which have access to system informtion UUID can be Hardware UUID and for websites it can be browser UUID.
 
 3. **CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
 
