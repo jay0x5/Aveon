@@ -14,7 +14,48 @@ dotenv.config({path: './.env'})
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
+//Below commented function To be built soon!
 
+// exports.AddData = async function add_data(JSONDataObject,CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
+//     const shid = String(UEID.substring(CUTUUIDFROM,CUTUUIDTO)) 
+
+//     const sshid = shid.replaceAll("-","")
+//     const key = sshid
+ 
+    
+
+//     //process the CAT for UAK
+//     const strucat = String(CATOKEN)
+//     const decrypted = CryptoJS.AES.decrypt(strucat, key); 
+//     const decres = decrypted.toString(CryptoJS.enc.Utf8) 
+//     // console.log(decres)
+//     const uak = String(decres.substring(0,36)) //Shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
+//     const uakk = uak 
+     
+//     //converting the passed relations object as a string
+//     const RelationsObj = JSON.stringify(UserRelationsObject)
+    
+//     return new Promise((resolve,reject) => {
+//         db.get(uakk).put({
+        
+//             RelationsObj //relations are stored as a string
+    
+//         })
+//         db.get(uakk).once(v =>{
+//             const res = v
+//             if (res === ''){
+//                 reject(new Error("Failed to add the user relations since user doesnt exist!"))
+//             }
+
+//             else{
+                
+//                 const Jsobject = "Added passed user relations"
+//                 resolve(Jsobject)
+//             }
+
+//         })
+
+//     })}
 
 exports.AddUserRelations = async function user_relations(UserRelationsObject,CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
     const shid = String(UEID.substring(CUTUUIDFROM,CUTUUIDTO)) 
