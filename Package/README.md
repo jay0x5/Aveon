@@ -283,7 +283,7 @@ console.log(fetchedresult)
 
 - We are still planning out this feature and will be rolled out soon!</br>Stay Tuned to our [twitter](https://twitter.com/AveonJS?s=20&t=VthMNi8g5QVt0egC8Y_q1g) or our [mail](contactaveon@gmail.com) us your questions :D
 
-**Example**:
+<!-- **Example**:
 
 ```js
 
@@ -295,7 +295,7 @@ console.log(fetchedresult)
 
 
 
-```
+``` -->
 
 
 
