@@ -201,6 +201,39 @@ UpdateMaData = updatemail.then(k=>{
 
 - mail updated!Cheers!
 
+## **_How to Delete User Document?_**
+
+- Deleting a user document works a bit differently when it comes to GUNDB and Aveon, you simply set the username and other fields as null which would indicate that the user document has been deleted on the network.
+
+#### DeleteUser Example:
+```js
+const aveon = require("./index.js")
+
+const UUID = String("31444335-3730-3451-5744-6C02E07DD074")
+
+const encat = "U2FsdGVkX18N/UOyq9rZ9EYqXqgROCY1ZjcyRqTpxBdMH2hd1+mQ3oDm4WS8xS4aQylrogtFtHCgNzTZlf3FbuNmhAnWaCUBcLj2RoSaI8AP/Q0Lsx8fS6OeKhQKE4BS"
+
+const CUTUUIDFROM = 2
+
+const CUTUUIDTO = 30
+var var1 = aveon.DeleteUser(encat,UUID,CUTUUIDFROM,CUTUUIDTO)
+
+result = var1.then(x=>{
+    console.log(x)
+})
+```
+#### Parameters to be given to the DeleteUser function
+
+1. **encat**: EncCat is basically Encrypted CAT which we stored on user's device during Registeration process.
+
+2. **UUID**: UUID is again basically anything which uniquely identifies a user, in case of apps which have access to system informtion UUID can be Hardware UUID and for websites it can be browser UUID.
+
+3. **CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
+
+4. **CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
+
+#### NOTE- Please make sure that UUID, CutUUIDFrom and CutUUIDTo parameter were same for a specific user during their registeration and login process.
+
 
 ## **_How to Add/Fetch User Relations??_**
 
@@ -208,7 +241,7 @@ UpdateMaData = updatemail.then(k=>{
 
 - For example: User's About me, User's Profile Picture, User's friend list or following list,etc
 
-- With Aveon, developer has freedom to put in any user relation of their choice by simply creating a json object of the relation and passing it to methods. Lets take a look at Adding Relations below
+- With Aveon, developer has freedom to put in any user relation of their choice by simply creating a json object of the relation and passing it to the method. Lets take a look at Adding Relations below
 
 #### Add Relations
 
