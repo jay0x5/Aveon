@@ -186,7 +186,7 @@ Well its quite simple, At the moment the whole system has 4 key components UAK,U
  - Kindly refer to [CONTRIBUTIONS](https://github.com/jay0x5/Aveon/blob/1ab181d16e535606393381f5374df08498578eb0/contributions.md) file on how one can contribute to the project.
  
 # Support
-- If any assistance required then please contact our team at contactaveon@gmail.com
+- If any assistance is required then please feel free to contact our team at contactaveon@gmail.com
 
 # Acknowledgements:
  - Cheers to Mr Mark Nadal @amark for creating such a wonderful utility like GunDB.</br>
