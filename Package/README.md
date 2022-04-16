@@ -203,7 +203,7 @@ UpdateMaData = updatemail.then(k=>{
 
 ## **_How to Delete User Document?_**
 
-- Deleting a user document works a bit differently when it comes to GUNDB and Aveon, the backend will simply set the username and other fields as null which would indicate that the user document has been deleted on the network.
+- Deleting a user document works a bit differently when it comes to Aveon, the backend will simply set the username and other fields as null which would indicate that the user document has been deleted on the network.
 
 #### DeleteUser Example:
 ```js
