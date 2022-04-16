@@ -77,18 +77,19 @@ exports.AddUserRelations = async function user_relations(UserRelationsObject,CAT
     const RelationsObj = JSON.stringify(UserRelationsObject)
     
     return new Promise((resolve,reject) => {
-        db.get(uakk).put({
-        
-            RelationsObj //relations are stored as a string
-    
-        })
+
         db.get(uakk).once(v =>{
             const res = v
-            if (res === ''){
+            if (res === "" || res.username === null){
                 reject(new Error("Failed to add the user relations since user doesnt exist!"))
             }
 
             else{
+                db.get(uakk).put({
+        
+                    RelationsObj //relations are stored as a string
+            
+                })
                 
                 const Jsobject = "Added passed user relations"
                 resolve(Jsobject)
@@ -119,8 +120,8 @@ exports.AddUserRelations = async function user_relations(UserRelationsObject,CAT
         return new Promise((resolve,reject) => {
             db.get(uakk).once(v =>{
                 const res = v
-                if (res === ''){
-                    reject(new Error("Failed to add the user relations since user doesnt exist!"))
+                if (res === "" || res.username === null){
+                    reject(new Error("Failed to fetch the user relations since user doesnt exist!"))
                 }
     
                 else{
@@ -132,6 +133,46 @@ exports.AddUserRelations = async function user_relations(UserRelationsObject,CAT
             })
     
         })}
+
+
+
+exports.DeleteUser = async function DeleteUser(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
+            //process the UUID for Key
+            const shid = String(UEID.substring(CUTUUIDFROM,CUTUUIDTO)) 
+        
+            const sshid = shid.replaceAll("-","")
+            const key = sshid
+        
+        
+            //process the CAT for UAK
+            const strucat = String(CATOKEN)
+            const decrypted = CryptoJS.AES.decrypt(strucat, key); 
+            const decres = decrypted.toString(CryptoJS.enc.Utf8) 
+            // console.log(decres)
+            const uak = String(decres.substring(0,36)) //Shouldnt be changed since its length is 0-36 and this line will retrieve it in a clean manner from CAT
+            const uakk = uak 
+            // console.log("Loginuak: " + uakk)
+            //put in the uak to retrieve credentials
+            return new Promise((resolve,reject) => {
+                db.get(uakk).put({
+        
+                    username: null,
+                    password: null,
+                    mail: null,
+            
+                })
+                db.get(uakk).once(v=>{
+                    if(v === "" || v.username === null)
+                    resolve("User Deleted successfully!")
+
+                    else{
+                        resolve("failed to delete user")
+                    }
+                })
+                    
+            })
+         
+        }
 
 
 
@@ -156,8 +197,9 @@ exports.LoginUser = async function LogUser(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDTO){
         db.get(uakk).once(v =>{
             // console.log(v)
             var res = v
-            if (res === ''){
-                reject(new Error("Failed to find a logged in"))
+            console.log(res.username)
+            if (res === "" || res.username === null){
+                // reject(new Error("Failed to find a registered user"))
                 const Jsobject = {isLogged: "False"}
                 // console.log(Jsobject)
                 resolve(Jsobject)
@@ -184,7 +226,7 @@ exports.MigrateUser = async function MigrateUser(MDT,URK){
         db.get(miguak).once(v =>{
             // console.log(v)
             var res = v
-            if (res === ''){
+            if (res === "" || res.username === null){
                 reject(new Error("Failed to find a logged in"))
                 const Jsobject = {isLogged: "False"}
                 // console.log(Jsobject)
@@ -225,18 +267,19 @@ exports.UpdateUserName = async function UpdateUsername(UpdateUserName,CATOKEN,UE
  
     
     return new Promise((resolve,reject) => {
-        db.get(uakk).put({
-        
-            username: UpdateUserName
     
-        })
         db.get(uakk).once(v =>{
             const res = v
-            if (res === ''){
+            if (res === "" || res.username === null){
                 reject(new Error("Failed to update the username,since no document exists"))
             }
 
             else{
+                db.get(uakk).put({
+        
+                    username: UpdateUserName
+            
+                })
                 
                 const Jsobject = "username updated"
                 resolve(Jsobject)
@@ -268,18 +311,18 @@ exports.UpdateMail = async function UpdateMail(UpdateMail,CATOKEN,UEID,CUTUUIDFR
  
     
     return new Promise((resolve,reject) => {
-        db.get(uakk).put({
-        
-            mail: UpdateMail
-    
-        })
         db.get(uakk).once(v =>{
             const res = v
-            if (res === ''){
+            if (res === "" || res.username === null){
                 reject(new Error("Failed to update the mail,since no document exists"))
             }
 
             else{
+                db.get(uakk).put({
+        
+                    mail: UpdateMail
+            
+                })
                 
                 const Jsobject = "mail updated"
                 resolve(Jsobject)
@@ -308,7 +351,7 @@ async function CreateRecoveryDoc(u,userN,encat,urk,mdt){
             }
             else{
                  db.get(UserUAK).once(D =>{
-                    const Jsobject = {CAT:encat,URK:urk,MDT:mdt,isRecoveryDoc:"True",userObject:D}
+                    const Jsobject = {CAT:encat,URK:urk,MDT:mdt,isRecoveryDoc:"True",userObject:D,UAK:UserUAK}
                     // console.log(Jsobject)
                     resolve( Jsobject)
                     
