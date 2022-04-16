@@ -203,7 +203,7 @@ UpdateMaData = updatemail.then(k=>{
 
 ## **_How to Delete User Document?_**
 
-- Deleting a user document works a bit differently when it comes to GUNDB and Aveon, you simply set the username and other fields as null which would indicate that the user document has been deleted on the network.
+- Deleting a user document works a bit differently when it comes to GUNDB and Aveon, the backend will simply set the username and other fields as null which would indicate that the user document has been deleted on the network.
 
 #### DeleteUser Example:
 ```js
@@ -233,6 +233,18 @@ result = var1.then(x=>{
 4. **CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
 
 #### NOTE- Please make sure that UUID, CutUUIDFrom and CutUUIDTo parameter were same for a specific user during their registeration and login process.
+
+- Parameters all set!
+
+- username,password and mail will be set to null once the process is completed and will return null value when accessed.
+
+- Now what we gonna do is set a variable to our AddUserRelations function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes a simple string message "User Deleted successfully!".
+
+- User has been deleted!
+
+- Developer can delete the CAT stored on user's device after user's deletion request.
+
+
 
 
 ## **_How to Add/Fetch User Relations??_**
