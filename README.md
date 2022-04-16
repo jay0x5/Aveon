@@ -73,7 +73,7 @@ Well its quite simple, At the moment the whole system has 4 key components UAK,U
 
 ## For developers who want to straight away use our NPM Package, kindly checkout below sources:
 
- - [Github-Documentation](https://github.com/jay0x5/Aveon/blob/af9372945a8908f6d2dc31fa1ff9f07aed0b3759/Package/README.md)
+ - [Github-Documentation](https://github.com/jay0x5/Aveon/blob/4f4845f130a2f70e12eae0d02c45cc1f9d3a976b/Package/README.md)
  - [NPM-Documentation](https://www.npmjs.com/package/aveon)
  - Website Documentation soon!
 
@@ -185,6 +185,9 @@ Well its quite simple, At the moment the whole system has 4 key components UAK,U
 # Contributions
  - Kindly refer to [CONTRIBUTIONS](https://github.com/jay0x5/Aveon/blob/1ab181d16e535606393381f5374df08498578eb0/contributions.md) file on how one can contribute to the project.
  
+# Support
+- If any assistance required then please contact our team at contactaveon@gmail.com
+
 # Acknowledgements:
  - Cheers to Mr Mark Nadal @amark for creating such a wonderful utility like GunDB.</br>
  -  Potential contributors will be recognized as a part of the family.
@@ -195,5 +198,7 @@ Well its quite simple, At the moment the whole system has 4 key components UAK,U
  - My mail: contactjay0x5@gmail.com
  
         
-   
+## It is my humble request to all the developers using the package to please contribute and improvise this package if needed.
+
+## Thank you.
          
