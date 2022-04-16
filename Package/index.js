@@ -161,14 +161,9 @@ exports.DeleteUser = async function DeleteUser(CATOKEN,UEID,CUTUUIDFROM,CUTUUIDT
                     mail: null,
             
                 })
-                db.get(uakk).once(v=>{
-                    if(v === "" || v.username === null)
-                    resolve("User Deleted successfully!")
+                resolve("User Deleted successfully!")
 
-                    else{
-                        resolve("failed to delete user")
-                    }
-                })
+                
                     
             })
          
