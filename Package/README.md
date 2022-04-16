@@ -224,7 +224,7 @@ result = var1.then(x=>{
 ```
 #### Parameters to be given to the DeleteUser function
 
-1. **encat**: EncCat is basically Encrypted CAT which we stored on user's device during Registeration process.
+1. **encat**: encat is basically Encrypted CAT which we stored on user's device during Registeration process.
 
 2. **UUID**: UUID is again basically anything which uniquely identifies a user, in case of apps which have access to system informtion UUID can be Hardware UUID and for websites it can be browser UUID.
 
