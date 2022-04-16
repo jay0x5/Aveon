@@ -351,7 +351,7 @@ async function CreateRecoveryDoc(u,userN,encat,urk,mdt){
             }
             else{
                  db.get(UserUAK).once(D =>{
-                    const Jsobject = {CAT:encat,URK:urk,MDT:mdt,isRecoveryDoc:"True",userObject:D,UAK:UserUAK}
+                    const Jsobject = {CAT:encat,URK:urk,MDT:mdt,isRecoveryDoc:"True",userObject:D}
                     // console.log(Jsobject)
                     resolve( Jsobject)
                     
