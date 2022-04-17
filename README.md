@@ -183,7 +183,7 @@ Well its quite simple, At the moment the whole system has 4 key components UAK,U
  - Our Auth Tools are already in beta and we will soon be expanding for availability of tools which would allow diverse data storage.
  
 # Contributions
- - Kindly refer to [CONTRIBUTIONS](https://github.com/jay0x5/Aveon/blob/1ab181d16e535606393381f5374df08498578eb0/contributions.md) file on how one can contribute to the project.
+ - Kindly refer to [CONTRIBUTIONS](https://github.com/jay0x5/Aveon/blob/8748c7510aaacb0f6908d0cf1c03b2196bcdec04/Package/README.md) file on how one can contribute to the project.
  
 # Support
 - If any assistance is required then please feel free to contact our team at contactaveon@gmail.com
