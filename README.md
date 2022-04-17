@@ -14,6 +14,8 @@
 - Reach out
 - End
 
+ [![Gitter](https://badges.gitter.im/Aveon-Community/Aveon-Chat-Help.svg)](https://gitter.im/Aveon-Community/Aveon-Chat-Help?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 # Aveon
 Aveon is an open sourced,decentralized DataBase & Secure Auth provider for Web3 Development.
 Based on GunDB, Aveon aims to provide goodness of decentralization and high security with minimal code setup for authentication purposes like Register,Login,etc.
@@ -202,7 +204,7 @@ Well its quite simple, At the moment the whole system has 4 key components UAK,U
 # Support
 - If any assistance is required then please feel free to contact our team at contactaveon@gmail.com
 
-- [![Gitter](https://badges.gitter.im/Aveon-Community/Aveon-Chat-Help.svg)](https://gitter.im/Aveon-Community/Aveon-Chat-Help?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 
 # Acknowledgements:
  - Cheers to Mr Mark Nadal @amark for creating such a wonderful utility like GunDB.</br>
