@@ -7,6 +7,9 @@
 - How it works
 - TODO
 - Getting Started
+  - File Structure
+  - Documentation for how to use npm package
+  - Documentation for how to run open sourced code
 - Future Goals
 - Contributions
 - Support
