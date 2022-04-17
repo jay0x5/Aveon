@@ -1,5 +1,8 @@
 ## Aveon NPM Package Walkthrough
 
+ [![Gitter](https://badges.gitter.im/Aveon-Community/Aveon-Chat-Help.svg)](https://gitter.im/Aveon-Community/Aveon-Chat-Help?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+ 
 ## What is this?
 - Aveon is an open sourced,decentralized DataBase & Secure Auth provider for Web3 Development.
 - Based on GunDB, Aveon aims to provide goodness of decentralization and high security with minimal code setup for authentication purposes like Register,Login,etc.
