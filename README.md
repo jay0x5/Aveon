@@ -202,7 +202,7 @@ Well its quite simple, At the moment the whole system has 4 key components UAK,U
 # Support
 - If any assistance is required then please feel free to contact our team at contactaveon@gmail.com
 
--![Gitter](https://badges.gitter.im/Aveon-Community/Aveon-Chat-Help.svg)](https://gitter.im/Aveon-Community/Aveon-Chat-Help?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+- [![Gitter](https://badges.gitter.im/Aveon-Community/Aveon-Chat-Help.svg)](https://gitter.im/Aveon-Community/Aveon-Chat-Help?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # Acknowledgements:
  - Cheers to Mr Mark Nadal @amark for creating such a wonderful utility like GunDB.</br>
