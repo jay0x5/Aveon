@@ -10,7 +10,7 @@ accessed by any other location but this folder instead.*/
 const db = require('gun')();
 
 
-const noderesult = db.get('2a2cccf0-a78f-461b-a998-d176f13922b5').once(v =>{
+const noderesult = db.get('Enter UAK/URK/MDT').once(v =>{
         console.log(v)
         });
 
