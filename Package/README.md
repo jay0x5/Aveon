@@ -212,15 +212,15 @@ UpdateMaData = updatemail.then(k=>{
 
 #### DeleteUser Example:
 ```js
-const aveon = require("./index.js")
+const aveon = require("aveon")
 
-const UUID = String("31444335-3730-3451-5744-6C02E07DD074")
+const encat = "U2FsdGVkX18RwW3XquEpiGO0vGRvwdQBjIKumevo6/AHwPzrF/OMqKB9+PonIf+7tgJFv2jC1lP9IYEbX49CEDHiWK/MPUiNq6DywPperM/EwvQcIlcB4Bk988bkA6KY"
 
-const encat = "U2FsdGVkX18N/UOyq9rZ9EYqXqgROCY1ZjcyRqTpxBdMH2hd1+mQ3oDm4WS8xS4aQylrogtFtHCgNzTZlf3FbuNmhAnWaCUBcLj2RoSaI8AP/Q0Lsx8fS6OeKhQKE4BS"
+const UUID = "uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd"
 
 const CUTUUIDFROM = 2
 
-const CUTUUIDTO = 30
+const CUTUUIDTO = 31
 var var1 = aveon.DeleteUser(encat,UUID,CUTUUIDFROM,CUTUUIDTO)
 
 result = var1.then(x=>{
