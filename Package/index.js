@@ -275,9 +275,10 @@ exports.UpdateUserName = async function UpdateUsername(UpdateUserName,CATOKEN,UE
                     username: UpdateUserName
             
                 })
-                
-                const Jsobject = "username updated"
-                resolve(Jsobject)
+                db.get(uakk).once(ob =>{
+                    const Jsobject = ob
+                    resolve(Jsobject)
+                })
             }
 
         })
@@ -318,9 +319,11 @@ exports.UpdateMail = async function UpdateMail(UpdateMail,CATOKEN,UEID,CUTUUIDFR
                     mail: UpdateMail
             
                 })
+                db.get(uakk).once(ob =>{
+                    const Jsobject = ob
+                    resolve(Jsobject)
+                })
                 
-                const Jsobject = "mail updated"
-                resolve(Jsobject)
             }
 
         })
