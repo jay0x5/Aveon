@@ -1,6 +1,10 @@
 
 # We are still in a beta program
 
+# Our Team has been trying to connect to the actual GUNDB peers for true decentralized experience but have been constantly failed, yes that means till the time data is locally stored on developer's device in specific directory where aveon is running.Send HELP!!
+
+
+
 # Content
 
 - Aveon
