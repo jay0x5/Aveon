@@ -1,9 +1,11 @@
 
-# We are still in a beta program
+# NOTE:
 
-# Our Team has been trying to connect to the actual GUNDB peers for true decentralized experience but have been failing, yes that means till the time data is locally stored on developer's device in specific directory where aveon is running.Send HELP!!
+### We are still in a beta program
 
+### Our Team has been trying to connect to the actual GUNDB peers for true decentralized experience but have been failing, yes that means till the time data is locally stored on developer's device in specific directory where aveon is running.Send HELP!!
 
+### Current Javascript version of Aveon will be deprecated once the team notices a stability with Python version.We will try to make it cross platform so Python,Javascript and other devs can use it too :)
 
 # Content
 
