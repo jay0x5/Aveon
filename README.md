@@ -7,7 +7,7 @@
 
 ### Current Javascript version of Aveon will be deprecated once the team notices a stability with a new Javacript IPFS version :)
 
-### IPFS based implementation soon! and then GunDB based implementstion gets scrapped
+### The whole documentation will be updated once the IPFS Implementation is released!
 
 # Content
 
@@ -103,7 +103,7 @@ Well its quite simple, At the moment the whole system has 4 key components UAK,U
 ## For developers who want to straight away use our NPM Package, kindly checkout below sources:
 
  - [blog](https://aveon.hashnode.dev/aveon-authentication-setup)
- - [Github-Documentation](https://github.com/jay0x5/Aveon/blob/da38aa89149481781e436ec7cd26063f2d3978f2/Package/README.md)
+ - [Github-Documentation](https://github.com/jay0x5/Aveon/blob/bba5df8b652adb089c0dcadcbbddf7146b305652/GUNDB-IMPLEMENTATION/README.md)
  - [NPM-Documentation](https://www.npmjs.com/package/aveon)
  - Website Documentation soon!
 
