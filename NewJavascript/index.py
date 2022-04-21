@@ -1,0 +1,1 @@
+print(len("QmaiykeduUrkWF11QvH1PVJM5aHrHLXngTJsPaUoSUzgJCe6c212e6-cbee-44fb-ba65-87f8878aeb0c"))
