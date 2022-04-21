@@ -1,18 +1,10 @@
 const fs = require('fs')
-const spawner = require('child_process').spawn
 const {v4: uuidv4} = require("uuid")
 const CryptoJS = require("crypto-js");
-
-
-const data = JSON.stringify({JSO: "LOL"})
-
-const python_process = spawner('python',['./index.py',data])
-// console.log(data)
-python_process.stdout.on('data',(data)=>{
-    console.log(data.toString())
-})
 const {create} = require("ipfs-http-client");
 const { uuid } = require('uuidv4');
+
+
 async function main() {
     const ipfs = await create(
         {
