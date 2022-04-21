@@ -17,9 +17,9 @@ return ipfs
 
   }
 
-async function savedata(userjsondata,UUID,CUTUUIDFROM,CUTUUIDTO,RECSECRET){
+exports.RegisterUser = async function savedata(userjsondata,UUID,CUTUUIDFROM,CUTUUIDTO,RECSECRET){
     let ipfss = await main();
-    let datavar = await ipfss.add(userjsondata);
+    let datavar = await ipfss.add(JSON.stringify(userjsondata));
 
     const EIDD = String(UUID.substring(CUTUUIDFROM,CUTUUIDTO)) //UUID part slicing to be determined by developer using it.
     const ED = EIDD.replaceAll("-","")
@@ -47,7 +47,7 @@ async function savedata(userjsondata,UUID,CUTUUIDFROM,CUTUUIDTO,RECSECRET){
     })
 }
 
-async function read_data(ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,RECSECRET){
+exports.LoginUser = async function read_data(ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,RECSECRET){
     const EIDD = String(UUID.substring(CUTUUIDFROM,CUTUUIDTO)) 
     const ED = EIDD.replaceAll("-","")
 
@@ -68,7 +68,8 @@ async function read_data(ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,RECSECRET){
         // console.log(datastr)
     }
 }
-async function recover_cat(USERURK,RECSECRET){
+
+exports.RecoverUserCAT = async function recover_cat(USERURK,RECSECRET){
     
    systemurk = USERURK.substring(0,46)
    urk = USERURK.substring(46,82)
@@ -87,7 +88,7 @@ async function recover_cat(USERURK,RECSECRET){
     }
 }
 
-async function updatecredentials(credentialname,Updatedfield,ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,URK,RECSECRET){
+exports.UpdateUser = async function updatecredentials(credentialname,Updatedfield,ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,URK,RECSECRET){
 
     const EIDD = String(UUID.substring(CUTUUIDFROM,CUTUUIDTO)) 
     const ED = EIDD.replaceAll("-","")
@@ -138,7 +139,7 @@ async function updatecredentials(credentialname,Updatedfield,ENCAT,UUID,CUTUUIDF
 
 }
 
-async function adduserRelations(rel,ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,URK,RECSECRET){
+exports.AddUserRelations = async function adduserRelations(rel,ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,URK,RECSECRET){
 
     const EIDD = String(UUID.substring(CUTUUIDFROM,CUTUUIDTO)) 
     const ED = EIDD.replaceAll("-","")
@@ -193,7 +194,29 @@ async function adduserRelations(rel,ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,URK,RECSECR
 
 }
 
-async function MultiDeviceAccess(MDT,URK,RECSECRET){
+exports.FetchUserObject = async function fetch_data(ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO){
+    const EIDD = String(UUID.substring(CUTUUIDFROM,CUTUUIDTO)) 
+    const ED = EIDD.replaceAll("-","")
+
+    const CAT = CryptoJS.AES.decrypt(ENCAT,ED);
+    var DECAT = CAT.toString(CryptoJS.enc.Utf8)
+    // console.log(DECAT)
+    const datahash = DECAT.substring(0,46)
+
+
+    let ipfs = await main();
+    let datavar = await ipfs.cat(datahash)
+    for await(const i of datavar){
+
+        let datastr = Buffer.from(i).toString()
+        return new Promise((resolve,reject)=>{
+            resolve(datastr)
+        })
+        // console.log(datastr)
+    }
+}
+
+exports.AllowMultiDeviceAccess = async function MultiDeviceAccess(MDT,URK,RECSECRET){
 
     const DeMDT = CryptoJS.AES.decrypt(MDT,URK).toString(CryptoJS.enc.Utf8)
     console.log(DeMDT)
@@ -218,15 +241,15 @@ async function MultiDeviceAccess(MDT,URK,RECSECRET){
 
 
 
-// obj = JSON.stringify({username:"MARC",PAASSWD:"PASSWD"})
+// obj = {username:"MARC",PAASSWD:"PASSWD"}
 // var op = savedata(obj,"uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","recsecx")
 // console.log(op.then(x=>{console.log(x)}))
 
 // lo = read_data("U2FsdGVkX1+OTS/JhrPxtyWuN9YvVqpyAMdqY2HmQJoerabCpimtFRdhnV6gDLx8N+Q5SCFqYDoSzoHW5rbpOaS/ATJMaBsdkpeK9Yt7J+JwCHcPviV8wWxRQWb9OTZ4pVLmt73y1UWDv1DpLNDBzA==","uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","recsecx")
 // console.log(lo.then(x=>{console.log(x)}))
 
-lo = recover_cat("Qmcb2kYqbLsWPeTKdzNRMVFDeMC1fym2HhR5qT9BfW4kuGc5170d0a-4a94-4bb6-9833-9eec4993fef4","recsecx")
-console.log(lo.then(x=>{console.log(x)}))
+// lo = recover_cat("Qmcb2kYqbLsWPeTKdzNRMVFDeMC1fym2HhR5qT9BfW4kuGc5170d0a-4a94-4bb6-9833-9eec4993fef4","recsecx")
+// console.log(lo.then(x=>{console.log(x)}))
 
 // lo = updatecredentials("userpfp","69bro","U2FsdGVkX1+SBz4ZzcmOTsy4IH/fxs+XxxdzWtBganf3Udarf8uwhVCw3duEnGfk5DjEmoFbbNRWOojQp4Uvy4toXn+GoOQclfZyzW1sCXoIWTK2rVjFS5ak/t+r78Uwe4bLXsXzw0tKlH/hBiG91g==","uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","QmXbrKaCYvv2nRBVQ3iwGKhSn9ccKZdNaRaVQaFZ49E2ubc5170d0a-4a94-4bb6-9833-9eec4993fef4","recsecx")
 // console.log(lo.then(x=>{console.log(x)}))
