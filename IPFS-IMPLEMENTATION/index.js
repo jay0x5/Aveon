@@ -193,6 +193,27 @@ async function adduserRelations(rel,ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,URK,RECSECR
 
 }
 
+async function MultiDeviceAccess(MDT,URK,RECSECRET){
+
+    const DeMDT = CryptoJS.AES.decrypt(MDT,URK).toString(CryptoJS.enc.Utf8)
+    console.log(DeMDT)
+
+    SliceMDT = DeMDT.substring(46,82)
+    finalMdt = SliceMDT + RECSECRET
+
+    console.log(finalMdt)
+    let ipfs = await main();
+    let datavar = await ipfs.cat(finalMdt)
+    for await(const i of datavar){
+
+        let datastr = Buffer.from(i).toString()
+        return new Promise((resolve,reject)=>{
+            resolve(datastr)
+        })
+    }
+
+}
+
 
 
 
