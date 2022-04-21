@@ -3,6 +3,7 @@
  [![Gitter](https://badges.gitter.im/Aveon-Community/Aveon-Chat-Help.svg)](https://gitter.im/Aveon-Community/Aveon-Chat-Help?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
  
+## WARNING:The current codebase of this package which is a GUNDB based implementation will be deprecated soon due to some complications with Gundb peers.Our team is building the IPFS implementation of Aveon which will be released soon!! Follow our [twitter](https://twitter.com/AveonJS) for latest updates about project.
 ## What is this?
 - Aveon is an open sourced,decentralized DataBase & Secure Auth provider for Web3 Development.
 - Based on GunDB, Aveon aims to provide goodness of decentralization and high security with minimal code setup for authentication purposes like Register,Login,etc.

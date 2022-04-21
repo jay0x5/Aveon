@@ -87,7 +87,7 @@ async function recover_cat(USERURK,RECSECRET){
     }
 }
 
-async function updateuname(UpdatedUsername,ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,URK,RECSECRET){
+async function updatecredentials(credentialname,Updatedfield,ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,URK,RECSECRET){
 
     const EIDD = String(UUID.substring(CUTUUIDFROM,CUTUUIDTO)) 
     const ED = EIDD.replaceAll("-","")
@@ -104,7 +104,7 @@ async function updateuname(UpdatedUsername,ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,URK,
 
         let datastr = Buffer.from(i).toString()
         dataobj = JSON.parse(datastr)
-        dataobj.username = UpdatedUsername
+        dataobj[credentialname] = Updatedfield
         updated_dataobj = dataobj
         console.log("updated: " + updated_dataobj)
         let updated_datavar = await ipfs.add(JSON.stringify(updated_dataobj));
@@ -136,33 +136,80 @@ async function updateuname(UpdatedUsername,ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,URK,
         // console.log(datastr)
     }
 
+}
+
+async function adduserRelations(rel,ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,URK,RECSECRET){
+
+    const EIDD = String(UUID.substring(CUTUUIDFROM,CUTUUIDTO)) 
+    const ED = EIDD.replaceAll("-","")
+
+    const CAT = CryptoJS.AES.decrypt(ENCAT,ED);
+    var DECAT = CAT.toString(CryptoJS.enc.Utf8)
+    // console.log(DECAT)
+    const datahash = DECAT.substring(0,46)
 
 
+    let ipfs = await main();
+    let datavar = await ipfs.cat(datahash)
+    for await(const i of datavar){
+
+        let datastr = Buffer.from(i).toString()
+        datastr1 = datastr.replace("{","")
+        datastr2 = datastr1.replace("}","")
+        // console.log(datastr2)
+        relstr = JSON.stringify((rel))
+        rel1 = relstr.replace("{","")
+        rel2 = rel1.replace("}","")
+        // console.log(rel2)
+        relationstr = "{" + datastr2 + "," + rel2 + "}"
+        let updated_datavar = await ipfs.add(relationstr);
 
 
+        //update 1sthalf of CAT
+        updated_CAT = DECAT.replace(datahash,updated_datavar.path)
+        const ENCRYPT_THE_CAT = CryptoJS.AES.encrypt(updated_CAT,ED);
+        var ENC_CAT = ENCRYPT_THE_CAT.toString()
 
+        //update 1st half(IPFS hash) of URK
+        user_and_dev_mixed_urk_part = URK.substring(46,82)
+        User_Dev_URK = user_and_dev_mixed_urk_part + RECSECRET
+        Updaterecoverydata = JSON.stringify({[User_Dev_URK]:ENC_CAT})
+        let updated_datavarr = await ipfs.add(Updaterecoverydata);
 
+        part_to_removed = URK.substring(0,46)
+        console.log(URK)
+        updated_urk = URK.replace(part_to_removed,updated_datavarr.path)
 
+        //update MDT
+        const NEWMDT = CryptoJS.AES.encrypt(updated_datavar.path,updated_urk);
+        var NEWENCMDT = NEWMDT.toString()
 
-
-
-
-
-
-
-
+        return new Promise((resolve,reject)=>{
+            newobj = {UPDATED_CAT:ENC_CAT,UPDATED_URK:updated_urk,UPDATED_MDT:NEWENCMDT}
+            resolve(newobj)
+        })
+        // console.log(datastr)
+    }
 
 }
+
+
+
+
 
 // obj = JSON.stringify({username:"MARC",PAASSWD:"PASSWD"})
 // var op = savedata(obj,"uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","recsecx")
 // console.log(op.then(x=>{console.log(x)}))
 
-// lo = read_data("U2FsdGVkX18fkAc++6MHAEHAr6k27P0CN3CUXuxG6bia1pHaF1kykL95Egs22EnRneK7SrqkiOTu6ItFp/I/RsRoGYeUypuMcM6fYz04Oy5AuXnZqiexz6uTEhNc5KzemlhTAUnRBFCaLhrFf9t9Ug==","uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","recsecx")
+// lo = read_data("U2FsdGVkX1+OTS/JhrPxtyWuN9YvVqpyAMdqY2HmQJoerabCpimtFRdhnV6gDLx8N+Q5SCFqYDoSzoHW5rbpOaS/ATJMaBsdkpeK9Yt7J+JwCHcPviV8wWxRQWb9OTZ4pVLmt73y1UWDv1DpLNDBzA==","uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","recsecx")
 // console.log(lo.then(x=>{console.log(x)}))
 
-// lo = recover_cat("QmfGXWE98MaJ8mbV49joUXNxR9jFyXjQacHMBAoMPKjU85c5170d0a-4a94-4bb6-9833-9eec4993fef4","recsecx")
+lo = recover_cat("Qmcb2kYqbLsWPeTKdzNRMVFDeMC1fym2HhR5qT9BfW4kuGc5170d0a-4a94-4bb6-9833-9eec4993fef4","recsecx")
+console.log(lo.then(x=>{console.log(x)}))
+
+// lo = updatecredentials("userpfp","69bro","U2FsdGVkX1+SBz4ZzcmOTsy4IH/fxs+XxxdzWtBganf3Udarf8uwhVCw3duEnGfk5DjEmoFbbNRWOojQp4Uvy4toXn+GoOQclfZyzW1sCXoIWTK2rVjFS5ak/t+r78Uwe4bLXsXzw0tKlH/hBiG91g==","uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","QmXbrKaCYvv2nRBVQ3iwGKhSn9ccKZdNaRaVQaFZ49E2ubc5170d0a-4a94-4bb6-9833-9eec4993fef4","recsecx")
 // console.log(lo.then(x=>{console.log(x)}))
 
-// lo = updateuname("KHONSHU","U2FsdGVkX1+SBz4ZzcmOTsy4IH/fxs+XxxdzWtBganf3Udarf8uwhVCw3duEnGfk5DjEmoFbbNRWOojQp4Uvy4toXn+GoOQclfZyzW1sCXoIWTK2rVjFS5ak/t+r78Uwe4bLXsXzw0tKlH/hBiG91g==","uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","QmXbrKaCYvv2nRBVQ3iwGKhSn9ccKZdNaRaVQaFZ49E2ubc5170d0a-4a94-4bb6-9833-9eec4993fef4","recsecx")
-// console.log(lo.then(x=>{console.log(x)}))
+// const robj = {userpfp:12323}
+//  lo = adduserRelations(robj,"U2FsdGVkX1+SBz4ZzcmOTsy4IH/fxs+XxxdzWtBganf3Udarf8uwhVCw3duEnGfk5DjEmoFbbNRWOojQp4Uvy4toXn+GoOQclfZyzW1sCXoIWTK2rVjFS5ak/t+r78Uwe4bLXsXzw0tKlH/hBiG91g==","uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","QmXbrKaCYvv2nRBVQ3iwGKhSn9ccKZdNaRaVQaFZ49E2ubc5170d0a-4a94-4bb6-9833-9eec4993fef4","recsecx")
+//  console.log(lo.then(x=>{console.log(x)}))
