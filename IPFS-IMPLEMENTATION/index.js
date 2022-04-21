@@ -17,7 +17,7 @@ return ipfs
 
   }
 
-exports.RegisterUser = async function savedata(userjsondata,UUID,CUTUUIDFROM,CUTUUIDTO,RECSECRET){
+module.exports.RegisterUser = async function savedata(userjsondata,UUID,CUTUUIDFROM,CUTUUIDTO,RECSECRET){
     let ipfss = await main();
     let datavar = await ipfss.add(JSON.stringify(userjsondata));
 
@@ -241,8 +241,8 @@ exports.AllowMultiDeviceAccess = async function MultiDeviceAccess(MDT,URK,RECSEC
 
 
 
-// obj = {username:"MARC",PAASSWD:"PASSWD"}
-// var op = savedata(obj,"uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","recsecx")
+// obj = {username:"lid hqiw",PAASSWD:"d23dh 3 d3"}
+// var op = RegisterUser(obj,"uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","recsecx")
 // console.log(op.then(x=>{console.log(x)}))
 
 // lo = read_data("U2FsdGVkX1+OTS/JhrPxtyWuN9YvVqpyAMdqY2HmQJoerabCpimtFRdhnV6gDLx8N+Q5SCFqYDoSzoHW5rbpOaS/ATJMaBsdkpeK9Yt7J+JwCHcPviV8wWxRQWb9OTZ4pVLmt73y1UWDv1DpLNDBzA==","uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","recsecx")
@@ -257,3 +257,6 @@ exports.AllowMultiDeviceAccess = async function MultiDeviceAccess(MDT,URK,RECSEC
 // const robj = {userpfp:12323}
 //  lo = adduserRelations(robj,"U2FsdGVkX1+SBz4ZzcmOTsy4IH/fxs+XxxdzWtBganf3Udarf8uwhVCw3duEnGfk5DjEmoFbbNRWOojQp4Uvy4toXn+GoOQclfZyzW1sCXoIWTK2rVjFS5ak/t+r78Uwe4bLXsXzw0tKlH/hBiG91g==","uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","QmXbrKaCYvv2nRBVQ3iwGKhSn9ccKZdNaRaVQaFZ49E2ubc5170d0a-4a94-4bb6-9833-9eec4993fef4","recsecx")
 //  console.log(lo.then(x=>{console.log(x)}))
+
+// lo = AllowMultiDeviceAccess("","","recsecx")
+// console.log(lo.then(x=>{console.log(x)}))
