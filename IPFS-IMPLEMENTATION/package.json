@@ -1,7 +1,7 @@
 {
   "name": "aveonfs",
-  "version": "1.0.2",
-  "description": "aveonfs is a IPFS based implementation of Aveon.",
+  "version": "1.0.0",
+  "description": "AveonFS is an IPFS implementation of original Aveon beta Gundb implementation",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

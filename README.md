@@ -3,12 +3,7 @@
 
 ### We are still in a beta program
 
-### Our Team has been trying to connect to the actual GUNDB peers for true decentralized experience but have been failing, yes that means till the time data is locally stored on developer's device in specific directory where aveon is running.Send HELP!!
-
-### Current Javascript version of Aveon will be deprecated once the team notices a stability with a new Javacript IPFS version :)
-
-### The whole documentation will be updated once the IPFS Implementation is released!
-
+# IPFS implementation package will be launched in next 24hours on npm.
 # Content
 
 - Aveon
