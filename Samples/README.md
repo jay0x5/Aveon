@@ -1,1 +1,1 @@
-Building an app example here with Aveon's Auth Functions soon!
+Samples for Aveon's Auth Functions.

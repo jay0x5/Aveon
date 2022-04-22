@@ -97,7 +97,8 @@ Well its quite simple, At the moment the whole system has 4 key components UAK,U
   
 # File Structure:
    - Initial folder includes the server.js file which is the main code initially built.</br>
-   - Package folder includes an empty file at the moment and all the developement for npm package  version of this system will take place in Package folder.</br>
+   - IPFS-IMPLEMENTATION folder includes main ```index.js``` and subordinate test files,this folder holds the codebase of Aveon which is implemented on IPFS.</br>
+   - GUNDB-IMPLEMENTATION folder includes main ```index.js``` and subordinate test files,this folder holds the codebase for deprecated GunDB implementation of Aveon.
    - Samples folder includes all the sample files.
 
 ## For developers who want to straight away use our NPM Package, kindly checkout below sources:
@@ -117,37 +118,40 @@ Well its quite simple, At the moment the whole system has 4 key components UAK,U
     npm install express
     npm install dotenv
     npm install uuid
-    npm install gun
+    npm install ipfshttpclient
     npm install crypto-js
     
    # *WHAT THE CODE?!*
    
-   Lets see how we can run the backend now?
+   Lets see how we can run the code now?
 
 
   ### File Structure["Package" folder]:
   - **index.js**: main code file where all the functionalities are being built.</br>
 
-  - **test.js**: test file which imports index.js and is testing its RegisterUser Function.</br>
+  - **register.js**: test file which imports index.js and is testing its RegisterUser Function.</br>
 
-  - **logintest.js**: another test file which imports index.js and is testing its LoginUser Function.</br>
-
-  - **queryyy.js**: just a GUNDB querying code which is used to check documents by entering respective URK or UAK.</br>
+  - **login.js**: another test file which imports index.js and is testing its LoginUser Function.</br>
 
   - **package.json**: package file created after npm init.
 
-  - **updatetest.js**: file which tests functionality of Update functions.
+  - **recovery.json**: file which tests the functionality of recovering CAT tokens for users.
 
-  - **user_relations.js**: file which tests functionality of adding user relation function.
+  - **Update.js**: file which tests functionality of Update functions.
 
-  - **fetch_relations.js**: file which tests functionality of fetching the user relation function.
+  - **Addrelations.js**: file which tests functionality of adding user relation function.
 
-  - **mdt-test.js**: file which tests multi-device-token functionality.
+  - **FetchRelations.js**: file which tests functionality of fetching the user relation function.
+
+  - **MDT.js**: file which tests multi-device-token functionality.
 
 
   ### Running the code:
    
-   For now, I think this is pretty straightforward without any code changes, you can run node filename.js after you set parameters for registering function in test.js file and then getting the encrypted CAT from the terminal, passing it to logintest.js and testing login function.
+   For now, I think this is pretty straightforward without any code changes, you can run node filename.js.
+
+   For example:
+   Set parameters for registering function in register.js file and then getting the encrypted CAT from the terminal, passing it to login.js and testing login function.In this way you run each method file locally and test it out :D
 
    Please report any issues via "Issues" or reach out to me :D
 
@@ -219,9 +223,7 @@ Well its quite simple, At the moment the whole system has 4 key components UAK,U
 - If any assistance is required then please feel free to contact our team at contactaveon@gmail.com
 
 
-
 # Acknowledgements:
- - Cheers to Mr Mark Nadal @amark for creating such a wonderful utility like GunDB.</br>
  -  Potential contributors will be recognized as a part of the family.
  
 # Reach out to me:

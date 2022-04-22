@@ -1,7 +1,7 @@
 {
-  "name": "aveon",
-  "version": "1.0.35",
-  "description": "test description",
+  "name": "aveonfs",
+  "version": "1.0.2",
+  "description": "aveonfs is a IPFS based implementation of Aveon.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -17,7 +17,7 @@ return ipfs
 
   }
 
-module.exports.RegisterUser = async function savedata(userjsondata,UUID,CUTUUIDFROM,CUTUUIDTO,RECSECRET){
+exports.RegisterUser = async function savedata(userjsondata,UUID,CUTUUIDFROM,CUTUUIDTO,RECSECRET){
     let ipfss = await main();
     let datavar = await ipfss.add(JSON.stringify(userjsondata));
 
@@ -26,8 +26,8 @@ module.exports.RegisterUser = async function savedata(userjsondata,UUID,CUTUUIDF
 
     const URKhalf = uuidv4()
     const URK = URKhalf + RECSECRET
-    console.log("Key: " + datavar.path)
-    console.log("URK: " + URK)
+    // console.log("Key: " + datavar.path)
+    // console.log("URK: " + URK)
     CATMIX = String(datavar.path) + uuidv4()
     const CAT = CryptoJS.AES.encrypt(CATMIX,ED);
     var ENCAT = CAT.toString()
@@ -107,7 +107,7 @@ exports.UpdateUser = async function updatecredentials(credentialname,Updatedfiel
         dataobj = JSON.parse(datastr)
         dataobj[credentialname] = Updatedfield
         updated_dataobj = dataobj
-        console.log("updated: " + updated_dataobj)
+        // console.log("updated: " + updated_dataobj)
         let updated_datavar = await ipfs.add(JSON.stringify(updated_dataobj));
 
 
@@ -123,7 +123,7 @@ exports.UpdateUser = async function updatecredentials(credentialname,Updatedfiel
         let updated_datavarr = await ipfs.add(Updaterecoverydata);
 
         part_to_removed = URK.substring(0,46)
-        console.log(URK)
+        // console.log(URK)
         updated_urk = URK.replace(part_to_removed,updated_datavarr.path)
 
         //update MDT
@@ -178,7 +178,7 @@ exports.AddUserRelations = async function adduserRelations(rel,ENCAT,UUID,CUTUUI
         let updated_datavarr = await ipfs.add(Updaterecoverydata);
 
         part_to_removed = URK.substring(0,46)
-        console.log(URK)
+        // console.log(URK)
         updated_urk = URK.replace(part_to_removed,updated_datavarr.path)
 
         //update MDT
@@ -216,17 +216,12 @@ exports.FetchUserObject = async function fetch_data(ENCAT,UUID,CUTUUIDFROM,CUTUU
     }
 }
 
-exports.AllowMultiDeviceAccess = async function MultiDeviceAccess(MDT,URK,RECSECRET){
+exports.AllowMultiDeviceAccess = async function MultiDeviceAccess(MDT,URK){
 
     const DeMDT = CryptoJS.AES.decrypt(MDT,URK).toString(CryptoJS.enc.Utf8)
-    console.log(DeMDT)
-
-    SliceMDT = DeMDT.substring(46,82)
-    finalMdt = SliceMDT + RECSECRET
-
-    console.log(finalMdt)
+    
     let ipfs = await main();
-    let datavar = await ipfs.cat(finalMdt)
+    let datavar = await ipfs.cat(DeMDT)
     for await(const i of datavar){
 
         let datastr = Buffer.from(i).toString()
@@ -242,7 +237,7 @@ exports.AllowMultiDeviceAccess = async function MultiDeviceAccess(MDT,URK,RECSEC
 
 
 // obj = {username:"lid hqiw",PAASSWD:"d23dh 3 d3"}
-// var op = RegisterUser(obj,"uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","recsecx")
+// var op = savedata(obj,"uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","recsecx")
 // console.log(op.then(x=>{console.log(x)}))
 
 // lo = read_data("U2FsdGVkX1+OTS/JhrPxtyWuN9YvVqpyAMdqY2HmQJoerabCpimtFRdhnV6gDLx8N+Q5SCFqYDoSzoHW5rbpOaS/ATJMaBsdkpeK9Yt7J+JwCHcPviV8wWxRQWb9OTZ4pVLmt73y1UWDv1DpLNDBzA==","uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd","2","31","recsecx")
