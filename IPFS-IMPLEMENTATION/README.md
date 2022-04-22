@@ -226,7 +226,7 @@ If i wanted to update *password* i would use "**PAASWD**" since that is the key 
 
 
 
-## **_How to Add/Fetch User Relations??_**
+## **_How to Add User Relations??_**
 
 - In case with Aveon, User Relations are defined as every single property linked to a single user on the social network of developer who is developing with Aveon package.
 
@@ -234,7 +234,6 @@ If i wanted to update *password* i would use "**PAASWD**" since that is the key 
 
 - With Aveon, developer has freedom to put in any user relation of their choice by simply creating a json object of the relation and passing it to the method. Lets take a look at Adding Relations below
 
-#### Add Relations
 
 ```js
 const aveon = require('aveonfs')
@@ -280,7 +279,7 @@ op.then(x=>{console.log(x)})
 - user-relations added!Cheers!
 
 
-#### Fetch User Object
+## **_How to Fetch User Object??_**
 
 - The bonus method to fetch the whole user object.
 
