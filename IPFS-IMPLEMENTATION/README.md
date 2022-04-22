@@ -357,7 +357,7 @@ op.then(x=>{console.log(x)})
 
 #### AddData
 ```js
-const aveon = require('./index.js')
+const aveon = require('aveonfs')
 
 const obj = {Movie: "Inception", Lead: "Leonardo DiCaprio"}
 const uuid = "uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd"
@@ -384,7 +384,85 @@ console.log(op.then(x=>{console.log(x)}))
 
 - Parameters all set!
 
+- Now what we gonna do is set a variable to our AddData function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes the CAT/URK/MDT.
 
+- And now i hope you all are aware about usecases of CAT/URK/MDT.
+
+#### ReadData
+```js
+const aveon = require('aveonfs')
+
+const Encat = "U2FsdGVkX1+oQEwLLSJpjQLbXVjKMI+feGwbv7igiWbMcQGz3fYt9/Gs3uG5kRBFRAzXO8qVKbDiv0WnKOLWfla1aRfXWWwDQBsrbWk10CNZBxY5ic2rOqKD8uvAIp799HG3bpHUJVUZFqR7VvBnNA=="
+const uuid = "uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd"
+const CUTUUIDFROM = "2"
+const CUTUUIDTO = "31"
+const RECSECRET = "recsecx"
+
+var op = aveon.ReadData(Encat,uuid,CUTUUIDFROM,CUTUUIDTO,RECSECRET)
+
+console.log(op.then(x=>{console.log(x)}))
+```
+### Parameters to be given to ReadData function
+
+1. **Encat**: Encat is basically Encrypted CAT which we stored on user's side during Registeration process.
+
+2. **uuid**:  UUID is basically anything which uniquely identifies a user, in case of apps which have access to system information UUID can be Hardware UUID and for websites it can be a secret phase into the code or as a environment variable set by developer and a part of which will be used as a key for encrypting their CAT(ClientAccessToken). The part to be used as a key is determined by the developer using the package.
+
+3. **CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
+
+4. **CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
+
+5. **RECSECRET**: Secret set by developer.
+
+- Parameters all set!
+
+- Now what we gonna do is set a variable to our AddData function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes the data object which we passed above in AddData.
+
+- Easy peasy! If you made it till here then pat yourself on the back because we gonna discuss the last method of Aveon now.
+
+#### UpdateData
+```js
+const aveon = require('./index.js')
+
+const Encat = "U2FsdGVkX19owfRSHodGrZSSjAkHTFWLNcKyNQd2OJ+maPnzo/JsWb1UjVguQZBwOVH5XNMeCpKmGG0W7pfrM2cEe0YPqU866CXb3+ed63g4ATfTUF7lwmElxIXeZtfgBCECnAzW4k3ws5PhhsheVg=="
+const uuid = "uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd"
+const URK = "QmTNuJRGhixh12rBif7VEmXZ9DowbUxK7QZpeV6RnjX7Ze7636497b-ae0e-48e1-95f3-a574f2408c7e"
+const CUTUUIDFROM = "2"
+const CUTUUIDTO = "31"
+const RECSECRET = "recsecx"
+const credential_field = "director"
+const new_data_added = "C. Nolan"
+
+
+var op = aveon.UpdateData(credential_field,new_data_added,Encat,uuid,CUTUUIDFROM,CUTUUIDTO,URK,RECSECRET)
+
+console.log(op.then(x=>{console.log(x)}))
+```
+### Parameters to be given to ReadData function
+
+1. **credential_field**: Basically the name of the field i wanna update, remember the name should match the key which you used in credential object during Registeration.
+
+2. **new_data_added**: Basically the new value i want to update, in my case it would be a new username but it can be a new mail id if you are gonna update mail or password if you gonna update password. 
+
+3. **Encat**: Encat is basically Encrypted CAT which we stored on user's side during Registeration process.
+
+4. **uuid**:  UUID is basically anything which uniquely identifies a user, in case of apps which have access to system information UUID can be Hardware UUID and for websites it can be a secret phase into the code or as a environment variable set by developer and a part of which will be used as a key for encrypting their CAT(ClientAccessToken). The part to be used as a key is determined by the developer using the package.
+
+5. **URK**: It is needed for modification purposes, in this case since as we update data on ipfs, the corresponding access hash changes to it and our CAT/URK/MDTs hold access hash in some way.
+
+6. **CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
+
+7. **CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
+
+8. **RECSECRET**: Secret set by developer.
+
+
+
+- Parameters all set!
+
+- Now what we gonna do is set a variable to our AddData function,pass the parameters in proper sequence to the function and then add a ```.then``` block to the variable to receive the returned promise which includes the data object which we passed above in AddData.
+
+- Easy peasy! If you made it till here then pat yourself on the back because we gonna discuss the last method of Aveon now.
 
 
 ## Stay Tuned to our [twitter](https://twitter.com/AveonJS?s=20&t=VthMNi8g5QVt0egC8Y_q1g) or our [mail](contactaveon@gmail.com) us your questions :D
