@@ -321,7 +321,7 @@ op.then(x=>{console.log(x)})
 
 - Since CAT is wrapped around UUID which is specific to each hardware in case of apps, if user tries to migrate their CAT to another new device or a device with existing CAT then the function will not return correct user details and will say we cannot decrypt the CAT for further processing.
 
-- So what do we do? We use MDT :) yes MultiDeviceTokens are generated during data generation for each user and are outputted with particular methods as migh have seen in some examples.
+- So what do we do? We use MDT :) yes MultiDeviceTokens are generated during data generation for each user and are outputted with particular methods as you might have seen in some examples.
 
 - Ask your user to give their MDT and URK to the app and app will process it for you.
 
