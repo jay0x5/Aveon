@@ -105,7 +105,7 @@ Well its quite simple, At the moment the whole system has 4 key components UAK,U
 
  - [blog](https://aveon.hashnode.dev/aveon-authentication-setup)
  - [Github-Documentation](https://github.com/jay0x5/Aveon/blob/bba5df8b652adb089c0dcadcbbddf7146b305652/GUNDB-IMPLEMENTATION/README.md)
- - [NPM-Documentation](https://www.npmjs.com/package/aveon)
+ - [NPM-Documentation](https://www.npmjs.com/package/aveonfs)
  - Website Documentation soon!
 
 
