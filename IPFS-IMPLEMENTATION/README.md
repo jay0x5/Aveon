@@ -353,23 +353,41 @@ op.then(x=>{console.log(x)})
 
 - Apart from Secure Auth abilities,Aveon also provides the developer with an option to store whatever they wish to in form of JSON Object.
 
-- We are still planning out this feature and will be rolled out soon!</br>Stay Tuned to our [twitter](https://twitter.com/AveonJS?s=20&t=VthMNi8g5QVt0egC8Y_q1g) or our [mail](contactaveon@gmail.com) us your questions :D
+- We are still planning out this feature and will be rolled out soon!</br>
 
-<!-- **Example**:
-
+#### AddData
 ```js
+const aveon = require('./index.js')
+
+const obj = {Movie: "Inception", Lead: "Leonardo DiCaprio"}
+const uuid = "uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd"
+const CUTUUIDFROM = "2"
+const CUTUUIDTO = "31"
+const RECSECRET = "recsecx"
+
+var op = aveon.AddData(obj,uuid,CUTUUIDFROM,CUTUUIDTO,RECSECRET)
+
+console.log(op.then(x=>{console.log(x)}))
+```
+
+#### Parameters to be given to AddData function
+
+1. **obj**: the data, developer wishes to store in a  JSON object
+
+2. **uuid**:  UUID is basically anything which uniquely identifies a user, in case of apps which have access to system information UUID can be Hardware UUID and for websites it can be a secret phase into the code or as a environment variable set by developer and a part of which will be used as a key for encrypting their CAT(ClientAccessToken). The part to be used as a key is determined by the developer using the package.
+
+3. **CutUUIDFrom**: The parameter to be given by the developer for deciding from which index to begin UUID slicing.
+
+4. **CutUUIDTo**: The parameter to be given by the developer for deciding till which index the UUID should be sliced.
+
+5. **RECSECRET**: Secret set by developer.
+
+- Parameters all set!
 
 
 
 
-
-
-
-
-
-``` -->
-
-
+## Stay Tuned to our [twitter](https://twitter.com/AveonJS?s=20&t=VthMNi8g5QVt0egC8Y_q1g) or our [mail](contactaveon@gmail.com) us your questions :D
 
 ## It is my humble request to all the developers using the package to please contribute and improvise this package if needed.
 
