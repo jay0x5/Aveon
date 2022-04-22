@@ -47,7 +47,7 @@ exports.RegisterUser = async function savedata(userjsondata,UUID,CUTUUIDFROM,CUT
     })
 }
 
-exports.LoginUser = async function read_data(ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO,RECSECRET){
+exports.LoginUser = async function read_data(ENCAT,UUID,CUTUUIDFROM,CUTUUIDTO){
     const EIDD = String(UUID.substring(CUTUUIDFROM,CUTUUIDTO)) 
     const ED = EIDD.replaceAll("-","")
 
