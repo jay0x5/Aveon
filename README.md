@@ -71,17 +71,6 @@ Well its quite simple, At the moment the whole system has 4 key components UAK,U
 - GunDb network allows distribution of User-Credentials in a ~~Centralized~~ **_Decentralized_** Manner.</br>
 
 
-
-## 1. General System Scheme:
-![20220414_150137](https://user-images.githubusercontent.com/78173760/163358101-73b72581-6bed-4557-89ee-119c427df9c3.jpg)
-
-
-
-  
-## 2. Component Scheme:
-![struuuuaaaa](https://user-images.githubusercontent.com/78173760/163357910-ae2d69f5-c5ef-4647-9d79-fbbe6f9f73b5.jpg)
-
-
 # TODOS [Will be updated everytime a task is completed or has been created]
 
   ## Workspace: Samples folder
