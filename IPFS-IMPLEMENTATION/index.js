@@ -4,7 +4,6 @@ const CryptoJS = require("crypto-js");
 const {create} = require("ipfs-http-client");
 const { uuid } = require('uuidv4');
 
-
 async function main() {
     const ipfs = await create(
         {
@@ -28,6 +27,12 @@ exports.RegisterUser = async function savedata(userjsondata,UUID,CUTUUIDFROM,CUT
     const URK = URKhalf + RECSECRET
     // console.log("Key: " + datavar.path)
     // console.log("URK: " + URK)
+    // const addr = '/ipfs/' + datavar.path
+    // console.log(addr)
+    // const command = "ipfs name publish " + addr
+    // console.log(command)
+    // const IPNS = execSync(command)
+    // console.log(IPNS)
     CATMIX = String(datavar.path) + uuidv4()
     const CAT = CryptoJS.AES.encrypt(CATMIX,ED);
     var ENCAT = CAT.toString()
