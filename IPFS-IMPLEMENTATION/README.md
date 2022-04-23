@@ -416,7 +416,7 @@ console.log(op.then(x=>{console.log(x)}))
 
 #### UpdateData
 ```js
-const aveon = require('./index.js')
+const aveon = require('aveonfs')
 
 const Encat = "U2FsdGVkX19owfRSHodGrZSSjAkHTFWLNcKyNQd2OJ+maPnzo/JsWb1UjVguQZBwOVH5XNMeCpKmGG0W7pfrM2cEe0YPqU866CXb3+ed63g4ATfTUF7lwmElxIXeZtfgBCECnAzW4k3ws5PhhsheVg=="
 const uuid = "uuidbyjay12d12d2d12dh182d9129d2udzd129dz20d29dd"
@@ -459,7 +459,10 @@ console.log(op.then(x=>{console.log(x)}))
 - Easy peasy! If you made it till here then pat yourself on the back because we gonna discuss the last method of Aveon now.
 
 
-## Stay Tuned to our [twitter](https://twitter.com/AveonJS?s=20&t=VthMNi8g5QVt0egC8Y_q1g) or our [mail](contactaveon@gmail.com) us your questions :D
+## Support:
+
+- [Mail](contactaveon@gmail.com)
+- [Twitter](https://twitter.com/AveonJS)
 
 ## It is my humble request to all the developers using the package to please contribute and improvise this package if needed.
 

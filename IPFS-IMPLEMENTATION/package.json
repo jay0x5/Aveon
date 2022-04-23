@@ -1,6 +1,6 @@
 {
   "name": "aveonfs",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "AveonFS is an IPFS implementation of Aveon",
   "main": "index.js",
   "scripts": {
