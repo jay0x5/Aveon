@@ -1,9 +1,4 @@
-# NEW IPFS IMPLEMENTATION in next 24hours.
-
-# Follow our [github](https://github.com/jay0x5/Aveon) & [twitter](https://twitter.com/AveonJS) to keep up with latest updates about development :D
-
-
-## Aveon NPM Package Walkthrough(aveonfs)
+# Aveon NPM Package Walkthrough(aveonfs)
 
  [![Gitter](https://badges.gitter.im/Aveon-Community/Aveon-Chat-Help.svg)](https://gitter.im/Aveon-Community/Aveon-Chat-Help?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
