@@ -3,7 +3,6 @@
 
 ### We are still in a beta program
 
-# IPFS implementation package will be launched in next 24hours on npm.
 # Content
 
 - Aveon
