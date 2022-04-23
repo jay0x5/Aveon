@@ -3,6 +3,7 @@ const {v4: uuidv4} = require("uuid")
 const CryptoJS = require("crypto-js");
 const {create} = require("ipfs-http-client");
 const { uuid } = require('uuidv4');
+// const {execSync} = require('child_process')
 
 async function main() {
     const ipfs = await create(
