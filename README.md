@@ -36,7 +36,7 @@ Basically to speculate if an easier and highly secure counterpart of blockchain 
 
 # Features
 1. ### Scattered Users:
-   User Credentials are distributed as unique Documents accross the GunDB Network.
+   User Credentials are distributed as unique Documents accross the IPFS Network.
    
 2. ### CAT will Login:
    No Cookies,Remember Me or Login input fields but the login part is completely seamless and secured with ClientAccessTokens[CAT] unique to each user.
@@ -45,7 +45,7 @@ Basically to speculate if an easier and highly secure counterpart of blockchain 
    Every piece of user credential and every access key point to useraccounts are encrypted with keys and connected to each user uniquely.
    
 4. ### No CounterSpies:
-   Our backend and frontend code will just be a intermediary link between Client and GunDB Network, NO SPYWARES INCLUDED!
+   Our backend and frontend code will just be a intermediary link between Client and IPFS Network, NO SPYWARES INCLUDED!
    
 5. ### ACCESS DENIED!!:
    To login into someone's account, you dont need user's credentials but you actually need to manipulate the unique CAT for each account.
@@ -63,12 +63,12 @@ Basically to speculate if an easier and highly secure counterpart of blockchain 
 
 ![b61466cc462bf5a13fef21ef40b710df](https://user-images.githubusercontent.com/78173760/161983977-625fe5f1-b4c5-4387-be27-3cfcf3b5f4fa.png)
 
-Well its quite simple, At the moment the whole system has 4 key components UAK,URK,CAT,MDT and of course the GUNDB Network</br>
+Well its quite simple, At the moment the whole system has 4 key components UAK,URK,CAT,MDT and of course the IPFS Network</br>
 - UAK stands for UserAccessKey and is the actual hash to access user ~~personal~~ data _**credentials_**,used for accessing credentials & relations purpose</br>
 - URK stands for UserRecoveryKey and is the actual key ~~linked~~ **_uniquely linked_** to each user on the network,used for recovery purpose.</br>
 - CAT stands for ~~User~~ ClientAccessToken and is passed on to user and also holds many **secrets** like UAK,used for accessing UAK.</br>
 - MDT stands for Multi Device Token and as the name suggests it is used to let user login to multiple devices without having to worry about ~~remembering~~ their password or anything.</br>
-- GunDb network allows distribution of User-Credentials in a ~~Centralized~~ **_Decentralized_** Manner.</br>
+- IPFS network allows distribution of User-Credentials in a ~~Centralized~~ **_Decentralized_** Manner.</br>
 
 
 # TODOS [Will be updated everytime a task is completed or has been created]
