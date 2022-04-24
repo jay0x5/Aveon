@@ -89,7 +89,7 @@ Well its quite simple, At the moment the whole system has 4 key components UAK,U
 ## For developers who want to straight away use our NPM Package, kindly checkout below sources:
 
  - [blog](https://aveon.hashnode.dev/aveon-authentication-setup)
- - [Github-Documentation](https://github.com/jay0x5/Aveon/blob/83937ba2074fab3166e0af412eda74dd9f4788a9/IPFS-IMPLEMENTATION/README.md)
+ - [Github-Documentation](https://github.com/jay0x5/Aveon/blob/7cad95ecfaaaeb36347f42ef52484d7d24371162/IPFS-IMPLEMENTATION/README.md)
  - [NPM-Documentation](https://www.npmjs.com/package/aveonfs)
  - Website Documentation soon!
 
